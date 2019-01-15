@@ -1,9 +1,51 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="warning">
     <ion-title>
-      Tab Two
+      Participantes
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content></ion-content>
+<ion-content>
+  <form>
+    <!--formgroup es un binding (recoge todos los valores) se pondra el mismo nombre en el controlador-->
+    <ion-item>
+      <ion-label>Nombre</ion-label>
+      <ion-input type="text"></ion-input>
+      <!--dentro de la variable hay un apartado que se llama title (todo.title)-->
+      <!--por cada item habra un formControlName-->
+    </ion-item>
+    <ion-item>
+      <ion-label>Apellido</ion-label>
+      <ion-textarea type="text"></ion-textarea>
+    </ion-item>
+    <ion-item>
+      <ion-label>Grado</ion-label>
+      <ion-textarea type="text"></ion-textarea>
+    </ion-item>
+    <ion-button shape="round" color="success" fill="outline" type="submit">Guardar</ion-button>
+  </form>
+</ion-content>
+
+<!--<ion-content padding>
+  <form >[formGroup]="todo" (ngSubmit)="logForm()"
+    formgroup es un binding (recoge todos los valores) se pondra el mismo nombre en el controlador
+    <ion-item>
+      <ion-label>Nombre</ion-label>
+      <ion-input type="text"></ion-input> formControlName="nombre"
+      dentro de la variable hay un apartado que se llama title (todo.title)
+      por cada item habra un formControlName
+    </ion-item>
+    <ion-item>
+      <ion-label>Apellido</ion-label>
+      <ion-input type="text" ></ion-input>formControlName="apellido"
+      dentro de la variable hay un apartado que se llama title (todo.title)
+      por cada item habra un formControlName
+    </ion-item>
+    <ion-item>
+      <ion-label>Grado</ion-label>
+      <ion-textarea type="text"></ion-textarea> formControlName="grado"
+    </ion-item>
+    <ion-button shape="round" color="primary" fill="outline" type="submit">Guardar</ion-button> [disabled]="!todo.valid"
+  </form>
+</ion-content>-->

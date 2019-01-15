@@ -1,5 +1,7 @@
 {
   "name": "KarateDo",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
