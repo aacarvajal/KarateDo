@@ -15,6 +15,24 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class AppComponent {
 
+  public appPages = [
+    {
+      title: 'Listado',
+      url: '',
+      icon: 'home'
+    },
+    {
+      title: 'Añadir participantes',
+      url: '/tab2',
+      icon: 'person-add'
+    },
+    {
+      title: 'Añadir categorias',
+      url: '/tab3',
+      icon: 'add-circle'
+    }
+  ];
+
   langmenu: any;
   skinmenu: any;
 

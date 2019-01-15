@@ -1,46 +1,30 @@
 <ion-app>
 
-  <!--<ion-split-pane color="primary">
-     our side menu  
-    <ion-menu #menu color="primary">
-      <ion-header color="primary" no-border style="text-align:center">
-        <ion-toolbar color="primary" style="text-align:center">
-          <ion-title style="text-align: center;font-weight: normal;font-size: 1.1rem;margin-bottom:15px;margin-top:15px">{{this.authS.getId()}}</ion-title>
-          <ion-avatar style="text-align: center;margin:auto;cursor: pointer;">
-            <ion-img [src]="this.authS.avatar" width="150px" style="border:2px solid #fff"></ion-img>
-          </ion-avatar>
+
+  <ion-split-pane>
+
+    <ion-menu side="start" menuId="custom" class="my-custom-menu">
+      <ion-header>
+        <ion-toolbar color="tertiary">
+          <ion-title>Menu</ion-title>
         </ion-toolbar>
       </ion-header>
-      <ion-content color="primary">
-        <ion-item color="primary" lines="none">
-          <ion-icon slot="start" name="moon" color="light"></ion-icon>
-          <ion-label style="font-size:0.95rem">
-           {{"changeSkin" | translate}}
-          </ion-label>
-          <ion-toggle slot="end" [(ngModel)]="skinmenu" (ionChange)="changeSkin($event)"></ion-toggle>
-        </ion-item>
-        <ion-item color="primary" lines="none">
-          <ion-icon slot="start" name="flag" color="light"></ion-icon>
-          <ion-label style="font-size:0.95rem">
-            {{"changeLang" | translate}}
-          </ion-label>
-          <ion-toggle slot="end" [(ngModel)]="langmenu" (ionChange)="changeLang($event)"></ion-toggle>
-        </ion-item>
+      <ion-content>
+        <ion-list>
+          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages">
+            <ion-item [routerLink]="[p.url]" [routerDirection]="'root'">
+              <ion-icon slot="start" [name]="p.icon"></ion-icon>
+              <ion-label>
+                {{p.title}}
+              </ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-list>
       </ion-content>
-      <ion-footer>
-        <ion-item color="primary" lines="none">
-          <ion-label color="primary">
-            <ion-button style="--box-shadow:none !important;border:none !important;box-shadow:none !important; font-weight: normal;font-size: 0.95rem"
-              fill="solid" color="primary">
-              <ion-icon slot="start" name="log-out" style="zoom:1.3"></ion-icon>
-              <span style="margin-left:16px">
-                {{"logout" | translate}}</span>
-            </ion-button>
-          </ion-label>
-        </ion-item>
-      </ion-footer>
-    </ion-menu>-->
+    </ion-menu>
 
-    <ion-router-outlet></ion-router-outlet>
-  <!--</ion-split-pane>-->
+    <ion-router-outlet main></ion-router-outlet>
+
+  </ion-split-pane>
+
 </ion-app>
