@@ -48,4 +48,10 @@ export class ServiciosService {
     return this.myCollection.doc(id).set(data);
   }
 
+  borraParticipante(id) {
+
+    return this.myCollection.doc(id).delete();
+
+  }
+
 }
