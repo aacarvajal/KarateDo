@@ -12,8 +12,8 @@ export class ServiciosService {
 
   constructor(private fireStore: AngularFirestore) { 
 
-    /*this.myCollection =
-      fireStore.collection<any>(environment.firebaseconfig);*/
+    this.myCollection =
+      fireStore.collection<any>(environment.firebaseconfig.regisColeccion);
 
   }
 
@@ -21,14 +21,14 @@ export class ServiciosService {
     Recibe un objeto y lo guarda como un documento nuevo en la colección 'todo'
     Devuelve un Promise
     */
-  agregaNota(datos) {
+  agregaParticipante(datos) {
     return this.myCollection.add(datos);
   }
   /*
   Recupera todos los documentos (notas) de la colección 'todo'
   Devuelve un Observable
   */
-  leeNotas() {
+  leeParticipantes() {
     return this.myCollection.get();
   }
   /*
@@ -36,7 +36,7 @@ export class ServiciosService {
   colección 'todo'
   Devuelve un Observable
   */
-  leeNota(id) {
+  leeParticipante(id) {
     return this.myCollection.doc(id).get();
   }
   /*
@@ -44,7 +44,7 @@ export class ServiciosService {
   documento identificado por id de la colección 'todo'
   Devuelve un Promise
   */
-  actualizaNota(id, data) {
+  actualizaParticipante(id, data) {
     return this.myCollection.doc(id).set(data);
   }
 

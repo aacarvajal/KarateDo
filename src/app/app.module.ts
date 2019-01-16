@@ -11,7 +11,7 @@ import { AppComponent } from './app.component';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { environment } from 'src/environments/environment';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule, FormGroup } from '@angular/forms';
 import { IonicStorageModule } from '@ionic/storage';
 import { TranslateModule, TranslateLoader,TranslatePipe } from '@ngx-translate/core';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
@@ -31,6 +31,7 @@ export function setTranslateLoader(http: any) {
     BrowserModule,
     IonicStorageModule.forRoot(),
     AppRoutingModule,
+    ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebaseconfig),
     AngularFirestoreModule,
     HttpClientModule, TranslateModule.forRoot({  //Módulo de traducción

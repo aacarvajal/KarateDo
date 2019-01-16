@@ -10,7 +10,9 @@ export const environment = {
     databaseURL: "https://karatedo-3969f.firebaseio.com",
     projectId: "karatedo-3969f",
     storageBucket: "karatedo-3969f.appspot.com",
-    messagingSenderId: "539042406581"
+    messagingSenderId: "539042406581",
+    regisColeccion: "registro",
+    catColeccion: "Categoria"
   },
 
   temaXDefecto:"light",  //tema por defecto
