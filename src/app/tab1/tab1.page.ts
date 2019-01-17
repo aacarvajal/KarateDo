@@ -1,8 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { LoadingController, AlertController, ModalController } from '@ionic/angular';
+import { LoadingController, AlertController, ModalController, Platform } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { ServiciosService } from '../servicios/servicios.service';
+import { ServCategoriaService } from '../servicios/serv-categoria.service';
 
 @Component({
   selector: 'app-tab1',
@@ -15,14 +15,19 @@ export class Tab1Page {
   listado = [];
   listadoPanel = [];
 
+  karate: string = "participante";
+  isAndroid: boolean = false;
+
   constructor(private serv: ServiciosService,
+    private servCat: ServCategoriaService,
     public loadingController: LoadingController,
     private router: Router,
     private alertController: AlertController,
-    public modalController: ModalController) {
+    public modalController: ModalController,
+    platform: Platform) {
 
     this.initializeItems();
-
+    this.isAndroid = platform.is('android');
 
   }
 
@@ -32,7 +37,7 @@ export class Tab1Page {
     this.serv.leeParticipantes()
       .subscribe((querySnapshot) => {
         this.listado = [];
-        this.delete();
+        //this.delete();
         querySnapshot.forEach((doc) => {
           // doc.data() is never undefined for query doc snapshots
           //console.log(doc.id, " => ", doc.data());
@@ -49,7 +54,7 @@ export class Tab1Page {
     this.serv.leeParticipantes()
       .subscribe(querySnapshot => {
         this.listado = [];
-        this.delete(); //Es un hack para solucionar un bug con el refresher y las listas
+        //this.delete(); //Es un hack para solucionar un bug con el refresher y las listas
         // dinámicas (ngFor) 
         querySnapshot.forEach((doc) => {
           //console.log(doc.data());//.data devuelve un objeto
@@ -62,9 +67,9 @@ export class Tab1Page {
       });
   }
 
-  async delete() { //para solucionar el tema de list-items-sliding con ngfor
+  /*async delete() { //para solucionar el tema de list-items-sliding con ngfor
     await this.dynamicList.closeSlidingItems();
-  }
+  }*/
 
   async presentLoading(msg) {
     let myloading = await this.loadingController.create({
@@ -144,8 +149,8 @@ export class Tab1Page {
     // si el valor esta vacio no filtra 
     if (val && val.trim() != '') {
       this.listadoPanel = this.listado.filter((item) => {
-        console.log(item.title);
-        return (item.title.toLowerCase().indexOf(val.toLowerCase()) > -1);
+        console.log(item.grado);
+        return (item.grado.toLowerCase().indexOf(val.toLowerCase()) > -1);
       })
     }
   }

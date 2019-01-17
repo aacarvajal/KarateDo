@@ -5,17 +5,14 @@ import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class ServiciosService {
+export class ServCategoriaService {
 
-  //es un servicio que se podra usar en cualquier componente
   myCollection: any;
 
   constructor(private fireStore: AngularFirestore) {
 
     this.myCollection =
-      fireStore.collection<any>(environment.firebaseconfig.regisColeccion);
-    /*this.myCollection =
-      fireStore.collection<any>(environment.firebaseconfig.catColeccion);*/
+      fireStore.collection<any>(environment.firebaseconfig.catColeccion);
 
   }
 
@@ -23,14 +20,14 @@ export class ServiciosService {
     Recibe un objeto y lo guarda como un documento nuevo en la colección 'todo'
     Devuelve un Promise
     */
-  agregaParticipante(datos) {
+  agregaCategoria(datos) {
     return this.myCollection.add(datos);
   }
   /*
   Recupera todos los documentos (notas) de la colección 'todo'
   Devuelve un Observable
   */
-  leeParticipantes() {
+  leeCategorias() {
     return this.myCollection.get();
   }
   /*
@@ -38,7 +35,7 @@ export class ServiciosService {
   colección 'todo'
   Devuelve un Observable
   */
-  leeParticipante(id) {
+  leeCategoria(id) {
     return this.myCollection.doc(id).get();
   }
   /*
@@ -46,14 +43,13 @@ export class ServiciosService {
   documento identificado por id de la colección 'todo'
   Devuelve un Promise
   */
-  actualizaParticipante(id, data) {
+  actualizaCategoria(id, data) {
     return this.myCollection.doc(id).set(data);
   }
 
-  borraParticipante(id) {
+  borraCategoria(id) {
 
     return this.myCollection.doc(id).delete();
 
   }
-
 }

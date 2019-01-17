@@ -3,13 +3,19 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>
-      Lista
-    </ion-title>
+    <ion-row>
+      <ion-col float-left>
+        <ion-title float-left>Lista</ion-title>
+      </ion-col>
+      <ion-col>
+        <ion-searchbar #searchBar id="searchBar" showCancelButton cancelButtonText="Custom Cancel" (ionInput)="getFilteredItem($event)"></ion-searchbar>
+      </ion-col>
+    </ion-row>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+
   <ion-refresher (ionRefresh)="doRefresh($event)">
     <!--refrescar-->
     <!--se ejecuta cuando se ejecuta ionRefresh-->
@@ -17,81 +23,34 @@
       refreshingText="Cargando...">
     </ion-refresher-content>
   </ion-refresher>
-  <ion-list #dynamicList id="dynamicList">
-    <!--ionlist son listas-->
-    <!--#dar valor a un elemento-->
-    <ion-item-sliding *ngFor="let item of listadoPanel;let i = index">
-      <!--items que se pueden desplazar a la izq o der-->
-      <ion-item>
-        <ion-label>
-          <h2>{{item.nombre}} {{item.apellido}}</h2>
-          <p>{{item.grado}}</p>
-        </ion-label>
-      </ion-item>
-      <ion-item-options side="end">
-        <!-- "end" = derecha-->
 
-        <ion-item-option color="primary" expandable>
-          <ion-icon name="create" style="zoom:2.0;"></ion-icon>
-        </ion-item-option>
-      </ion-item-options>
-      <ion-item-options side="start">
-        <ion-item-option color="danger" expandable>
-          <ion-icon name="remove-circle" style="zoom:2.0;"></ion-icon>
-        </ion-item-option>
-      </ion-item-options><!-- "start" = izquierda-->
-    </ion-item-sliding>
-  </ion-list>
-</ion-content>
-
-<!-- <ion-slides #slides (ionSlideTransitionStart)="updateIndicatorPosition();updateCat(slides.getActiveIndex())"
-  (ionSlideWillChange)="updateIndicatorPosition()" (ionSlideDidChange)="updateIndicatorPosition()" #SwipedTabsSlider
-  (ionSlideDrag)="animateIndicator($event)">
-  <ion-slide>
-    <ion-content class="fixed-scroll">
-      <ion-item *ngFor="let item of listadoPanel;let i = index">
-        <ion-icon name="mail" slot="start"></ion-icon>
-
-        <ion-label>
-          <h3>{{item.nombre}}</h3>
-          <h4>{{item.grado}}</h4>
-        </ion-label>
-      </ion-item>
-    </ion-content>
-  </ion-slide>
-  <ion-slide>
-    <ion-content class="fixed-scroll">
-      <ion-item *ngFor="let item of listadoPanel;let i = index">
-        <ion-avatar slot="start" style="background-color:var(--ion-color-primary)">
-        <img [src]="getImagen(item.avatar)" style="margin:auto;width:100px">
-      </ion-avatar>
-        <ion-label>
-          <h3>{{item.nombre}}</h3>
-          <h4>{{item.grado}}</h4>
-        </ion-label>
-      </ion-item>
-
-      <ion-infinite-scroll #infiniteScroll threshold="10px">
-        (ionInfinite)="updateUser($event,false)"
-        <ion-infinite-scroll-content loadingSpinner="null" loadingText="">
-          <img src="../../../assets/imgs/loading.svg" style="width:48px !important;margin:auto;position:relative">
-        </ion-infinite-scroll-content>
-      </ion-infinite-scroll>
-    </ion-content>
-  </ion-slide>
-</ion-slides>
-
-<ion-content style="background: orange">
-  <ion-segment style="background-color:var(--ion-color-success)" color="light">
-    <ion-segment-button layout="icon-start" value="0" style="--padding-end:0px;--padding-start:0px">
-      <ion-icon name="mail" style="margin-right:1px;zoom:0.8"></ion-icon>
-      <ion-label>{{item.nombre}}</ion-label>
-      <ion-label>{{item.grado}}</ion-label>
+  <ion-segment [(ngModel)]="karate">
+    <ion-segment-button layout="icon-start" value="0" style="--padding-end:0px;--padding-start:0px" value="Participantes">
+      Participantes
     </ion-segment-button>
-    <ion-segment-button layout="icon-start" value="1" style="--padding-end:0px;--padding-start:0px">
-      <ion-icon name="contacts" style="margin-right:1px;zoom:0.8"></ion-icon>
-      <ion-label></ion-label>
+    <ion-segment-button layout="icon-start" value="0" style="--padding-end:0px;--padding-start:0px" value="Categorias">
+      Categorias
     </ion-segment-button>
+
   </ion-segment>
+  <div [ngSwitch]="karate">
+    <ion-list #dynamicList id="dynamicList" *ngSwitchCase="'Participantes'">
+      <ion-item *ngFor="let item of listadoPanel;let i = index">
+        <label>
+          <h3>{{item.nombre}} {{item.apellido}}</h3>
+          <p>{{item.grado}}</p>
+        </label>
+      </ion-item>
+    </ion-list>
 
-</ion-content> -->
+    <ion-list *ngSwitchCase="'Categorias'">
+      <ion-item *ngFor="let item of listadoPanel;let i = index">
+        <label>
+          <h3>{{item.nombre}} {{item.apellido}}</h3>
+          <p>{{item.grado}}</p>
+        </label>
+      </ion-item>
+    </ion-list>
+
+  </div>
+</ion-content>
