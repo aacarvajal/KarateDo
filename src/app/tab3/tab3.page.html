@@ -15,13 +15,13 @@
     <!--formgroup es un binding (recoge todos los valores) se pondra el mismo nombre en el controlador-->
     <ion-item>
       <ion-label>Descripcion</ion-label>
-      <ion-input type="text"></ion-input>
+      <ion-input type="text" formControlName="descripcion"></ion-input>
       <!--dentro de la variable hay un apartado que se llama title (todo.title)-->
       <!--por cada item habra un formControlName-->
     </ion-item>
     <ion-item>
       <ion-label>Sistema de puntos</ion-label>
-      <ion-textarea type="text"></ion-textarea>
+      <ion-textarea type="text" formControlName="sistema"></ion-textarea>
     </ion-item>
     <ion-button shape="round" color="success" fill="outline" type="submit">Guardar</ion-button>
   </form>

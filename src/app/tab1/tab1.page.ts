@@ -3,6 +3,8 @@ import { LoadingController, AlertController, ModalController, Platform } from '@
 import { Router } from '@angular/router';
 import { ServiciosService } from '../servicios/servicios.service';
 import { ServCategoriaService } from '../servicios/serv-categoria.service';
+import { ModalParticipantePage } from '../modal/modal-participante/modal-participante.page';
+import { ModalCategoriaPage } from '../modal/modal-categoria/modal-categoria.page';
 
 @Component({
   selector: 'app-tab1',
@@ -12,8 +14,10 @@ import { ServCategoriaService } from '../servicios/serv-categoria.service';
 export class Tab1Page {
 
   @ViewChild('dynamicList') dynamicList;
-  listado = [];
-  listadoPanel = [];
+  listPartic = [];
+  listCateg = [];
+  listPanelPartic = [];
+  listPanelCat = [];
 
   karate: string = "participante";
   isAndroid: boolean = false;
@@ -36,33 +40,64 @@ export class Tab1Page {
     this.presentLoading("Cargando");//texto de el loading
     this.serv.leeParticipantes()
       .subscribe((querySnapshot) => {
-        this.listado = [];
+        this.listPartic = [];
         //this.delete();
         querySnapshot.forEach((doc) => {
           // doc.data() is never undefined for query doc snapshots
           //console.log(doc.id, " => ", doc.data());
-          this.listado.push({ id: doc.id, ...doc.data() });
+          this.listPartic.push({ id: doc.id, ...doc.data() });
         });
-        //console.log(this.listado);
-        this.listadoPanel = this.listado;
+        //console.log(this.listPartic);
+        this.listPanelPartic = this.listPartic;
         this.loadingController.dismiss();
       });
+
+      this.presentLoading("Cargando");//texto de el loading
+      this.servCat.leeCategorias()
+        .subscribe((querySnapshot) => {
+          this.listCateg = [];
+          //this.delete();
+          querySnapshot.forEach((doc) => {
+            // doc.data() is never undefined for query doc snapshots
+            //console.log(doc.id, " => ", doc.data());
+            this.listCateg.push({ id: doc.id, ...doc.data() });
+          });
+          //console.log(this.listPartic);
+          this.listPanelCat = this.listCateg;
+          this.loadingController.dismiss();
+        });
+
   }
 
   //Esta función es llamada por el componente Refresher de IONIC v4
   doRefresh(refresher) {
     this.serv.leeParticipantes()
       .subscribe(querySnapshot => {
-        this.listado = [];
+        this.listPartic = [];
         //this.delete(); //Es un hack para solucionar un bug con el refresher y las listas
         // dinámicas (ngFor) 
         querySnapshot.forEach((doc) => {
           //console.log(doc.data());//.data devuelve un objeto
           //paydata devuelve un objeto de un array
-          this.listado.push({ id: doc.id, ...doc.data() });//push=añadir elementos a un array
+          this.listPartic.push({ id: doc.id, ...doc.data() });//push=añadir elementos a un array
           //los 3 puntos en typescript convierte un objeto a json
         });
-        this.listadoPanel = this.listado;
+        this.listPanelPartic = this.listPartic;
+        refresher.target.complete();//para que se cierre el refresh
+      });
+
+      this.servCat.leeCategorias()
+      .subscribe(querySnapshot => {
+        this.listCateg = [];
+        //this.delete(); //Es un hack para solucionar un bug con el refresher y las listas
+        // dinámicas (ngFor) 
+        querySnapshot.forEach((doc) => {
+          //console.log(doc.data());//.data devuelve un objeto
+          //paydata devuelve un objeto de un array
+          this.listCateg.push({ id: doc.id, ...doc.data() });//push=añadir elementos a un array
+          //los 3 puntos en typescript convierte un objeto a json
+        });
+        this.listPanelCat = this.listCateg;
         refresher.target.complete();//para que se cierre el refresh
       });
   }
@@ -79,10 +114,10 @@ export class Tab1Page {
   }
 
   //edita una Participante ya creada
-  /*async editarParticipante(id: any, tittle: any, description: any) {
+  async editarParticipante(id: any, nombre: any, apellido: any, edad: any, grado: any) {
     const modal = await this.modalController.create({
-      component: ModalPage,
-      componentProps: { id, tittle, description}
+      component: ModalParticipantePage,
+      componentProps: { id, nombre, apellido, edad, grado}
     });
 
     //actualiza el tab1 que mostrara la Participante modificada
@@ -95,16 +130,40 @@ export class Tab1Page {
 
     await modal.present();
 
-  }*/
+  }
 
-  irNueva() {
+  async editarCategoria(id: any, descripcion: any, sistema: any) {
+    const modal = await this.modalController.create({
+      component: ModalCategoriaPage,
+      componentProps: { id, descripcion, sistema}
+    });
+
+    //actualiza el tab1 que mostrara la Participante modificada
+    modal.onDidDismiss()
+      .then(() => {//se ejecuta cuando tiene exito
+
+        this.ionViewDidEnter();
+
+      });
+
+    await modal.present();
+
+  }
+
+  /*irNueva() {
     console.log("Ir a Nueva")
     this.router.navigateByUrl('/tabs/(tab2:tab2)');
-  }
+  }*/
 
   borrarParticipante(id) {
 
     this.serv.borraParticipante(id);
+
+  }
+
+  borrarCategoria(id) {
+
+    this.servCat.borraCategoria(id);
 
   }
 
@@ -135,11 +194,12 @@ export class Tab1Page {
   //inicializa el array de filtrar
   initializeItems(): void {
 
-    this.listado = this.listadoPanel;
+    this.listPartic = this.listPanelPartic;
+    this.listCateg = this.listPanelCat;
 
   }
 
-  getFilteredItem($event) {
+  getFilteredParticipante($event) {
     // resetea serv los objetos y pone el array de nuevo con serv los elementos
     this.initializeItems();
 
@@ -148,9 +208,25 @@ export class Tab1Page {
 
     // si el valor esta vacio no filtra 
     if (val && val.trim() != '') {
-      this.listadoPanel = this.listado.filter((item) => {
-        console.log(item.grado);
+      this.listPanelPartic = this.listPartic.filter((item) => {
+        //console.log(item.grado);
         return (item.grado.toLowerCase().indexOf(val.toLowerCase()) > -1);
+      })
+    }
+  }
+
+  getFilteredCategoria($event) {
+    // resetea serv los objetos y pone el array de nuevo con serv los elementos
+    this.initializeItems();
+
+    // Establece el valor del search bar
+    const val = $event.target.value;
+
+    // si el valor esta vacio no filtra 
+    if (val && val.trim() != '') {
+      this.listPanelCat = this.listCateg.filter((item) => {
+        //console.log(item.grado);
+        return (item.sistema.toLowerCase().indexOf(val.toLowerCase()) > -1);
       })
     }
   }

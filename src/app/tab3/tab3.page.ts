@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ServiciosService } from '../servicios/servicios.service';
 import { Router } from '@angular/router';
 import { LoadingController } from '@ionic/angular';
+import { ServCategoriaService } from '../servicios/serv-categoria.service';
 
 @Component({
   selector: 'app-tab3',
@@ -16,7 +17,7 @@ export class Tab3Page {
   //Lo usamos para mostrar un cargando mientras se realiza la operación.
 
   constructor(private formBuilder: FormBuilder,//sin el formbuilder no se pueden crear los campos dentro del formulario
-    private serv: ServiciosService,
+    private servC: ServCategoriaService,
     private router: Router,
     public loadingController: LoadingController) {
     /* Creamos la relación entre el formulario de nueva.page.html y cat; además
@@ -31,12 +32,12 @@ export class Tab3Page {
  Promise para sincronizar la interfaz. */
   logForm() {
     let data = {
-      nombre: this.cat.get("descripcion").value,
-      apellido: this.cat.get("sistema").value
+      descripcion: this.cat.get("descripcion").value,
+      sistema: this.cat.get("sistema").value
     };
     /* Mostramos el cargando... */
     this.myloading = this.presentLoading();
-    this.serv.agregaParticipante(data)//envia la funcion
+    this.servC.agregaCategoria(data)//envia la funcion
       .then((docRef) => {
         //console.log("ID insertado", docRef.id);//ultimo id
         /* Ponemos en blanco los campos del formulario*/

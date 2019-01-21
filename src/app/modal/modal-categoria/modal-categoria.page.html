@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Editar Categoria</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding>
+  <form [formGroup]="Categoria" (ngSubmit)="actualizarFormulario()">
+    <ion-item>
+      <ion-label>Descripcion</ion-label>
+      <ion-input type="text" formControlName="descripcion"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Sistema de puntos</ion-label>
+      <ion-input type="text" formControlName="sistema"></ion-input>
+    </ion-item>
+    <ion-button shape="round" color="primary" fill="outline" type="submit" [disabled]="!Categoria.valid">Actualizar</ion-button>
+  </form>
+</ion-content>

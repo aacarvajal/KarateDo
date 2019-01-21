@@ -44,7 +44,9 @@ export class ServCategoriaService {
   Devuelve un Promise
   */
   actualizaCategoria(id, data) {
+    
     return this.myCollection.doc(id).set(data);
+
   }
 
   borraCategoria(id) {

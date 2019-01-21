@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Editar Participante</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding>
+  <form [formGroup]="registro" (ngSubmit)="actualizarFormulario()">
+    <ion-item>
+      <ion-label>Nombre</ion-label>
+      <ion-input type="text" formControlName="nombre"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Apellidos</ion-label>
+      <ion-input formControlName="apellido"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Edad</ion-label>
+      <ion-input formControlName="edad"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Grado</ion-label>
+      <ion-input formControlName="grado"></ion-input>
+    </ion-item>
+    <ion-button shape="round" color="primary" fill="outline" type="submit" [disabled]="!registro.valid">Actualizar</ion-button>
+  </form>
+</ion-content>

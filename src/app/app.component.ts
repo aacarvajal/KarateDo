@@ -53,6 +53,21 @@ export class AppComponent {
 
   initializeApp() {
     this.platform.ready().then(() => {
+
+      /*Gestionamos el idioma del sistema: en función del lenguaje por defecto o
+            el idioma del navegador si está disponible.
+            */
+      /*this.translate.addLangs(environment.idiomaDisponible);  //add all languages
+      this.translate.setDefaultLang(environment.idiomaXDefecto); //use default language
+      if (this.translate.getBrowserLang) {  //if browsers's language is avalaible is set up as default
+        if (environment.idiomaDisponible.includes(this.translate.getBrowserLang())) {
+          this.translate.use(this.translate.getBrowserLang());
+        }
+      }*/
+
+      //Cargamos el estilo por defecto
+      this.themeS.setTheme(environment.temaXDefecto);
+
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });

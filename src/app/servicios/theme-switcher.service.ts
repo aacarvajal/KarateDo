@@ -64,6 +64,8 @@ export class ThemeSwitcherService {
           { themeVariable: '--ion-background-color', value: '#383838'},
           { themeVariable: '--ion-color-tertiary', value: '#999999'},
           { themeVariable: '--ion-toggle-handle-background-color', value: '#ffffff'},
+          // { themeVariable: '--ion-segment-button-ios-background-color', value: '#ffffff'},
+          // { themeVariable: '--ion-segment-button-md-background-color', value: '#ffffff'},
           { themeVariable: '--ion-color-success', value: '#004d00'}
         ]
       }

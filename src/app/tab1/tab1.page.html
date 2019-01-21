@@ -8,7 +8,8 @@
         <ion-title float-left>Lista</ion-title>
       </ion-col>
       <ion-col>
-        <ion-searchbar #searchBar id="searchBar" showCancelButton cancelButtonText="Custom Cancel" (ionInput)="getFilteredItem($event)"></ion-searchbar>
+        <ion-searchbar #searchBar id="searchBar" showCancelButton cancelButtonText="Custom Cancel" (ionInput)="getFilteredParticipante($event)"
+          (ionInput)="getFilteredCategoria($event)"></ion-searchbar>
       </ion-col>
     </ion-row>
   </ion-toolbar>
@@ -19,8 +20,8 @@
   <ion-refresher (ionRefresh)="doRefresh($event)">
     <!--refrescar-->
     <!--se ejecuta cuando se ejecuta ionRefresh-->
-    <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Arrastra para refrescar" refreshingSpinner="crescent"
-      refreshingText="Cargando...">
+    <ion-refresher-content pullingIcon="arrow-dropdown" showCancelButton cancelButtonText="Cancelar" pullingText="Arrastra para refrescar"
+      refreshingSpinner="crescent" refreshingText="Cargando...">
     </ion-refresher-content>
   </ion-refresher>
 
@@ -35,22 +36,23 @@
   </ion-segment>
   <div [ngSwitch]="karate">
     <ion-list #dynamicList id="dynamicList" *ngSwitchCase="'Participantes'">
-      <ion-item *ngFor="let item of listadoPanel;let i = index">
+      <ion-item *ngFor="let item of listPanelPartic;let i = index" (click)="editarParticipante(item.id,item.nombre,item.apellido,item.edad,item.grado)">
         <label>
-          <h3>{{item.nombre}} {{item.apellido}}</h3>
+          <p>{{item.nombre}} {{item.apellido}}</p>
           <p>{{item.grado}}</p>
         </label>
       </ion-item>
     </ion-list>
 
-    <ion-list *ngSwitchCase="'Categorias'">
-      <ion-item *ngFor="let item of listadoPanel;let i = index">
+    <ion-list #dynamicList id="dynamicList" *ngSwitchCase="'Categorias'">
+      <ion-item *ngFor="let item of listPanelCat;let i = index" (click)="editarCategoria(item.id,item.descripcion,item.sistema)">
         <label>
-          <h3>{{item.nombre}} {{item.apellido}}</h3>
-          <p>{{item.grado}}</p>
+          <p>{{item.descripcion}}</p>
+          <p>{{item.sistema}}</p>
         </label>
       </ion-item>
     </ion-list>
 
   </div>
+
 </ion-content>
