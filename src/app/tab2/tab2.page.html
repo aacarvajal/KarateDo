@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar color="warning">
+  <ion-toolbar color="primary">
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
@@ -39,6 +39,6 @@
         <ion-select-option>prueba</ion-select-option>
       </ion-select>
     </ion-item> -->
-    <ion-button shape="round" color="success" fill="outline" type="submit">Guardar</ion-button>
+    <ion-button type="submit" [disabled]="!reg.valid">Guardar</ion-button>
   </form>
 </ion-content>

@@ -21,6 +21,7 @@
       <ion-label>Grado</ion-label>
       <ion-input formControlName="grado"></ion-input>
     </ion-item>
-    <ion-button shape="round" color="primary" fill="outline" type="submit" [disabled]="!registro.valid">Actualizar</ion-button>
+    <ion-button type="submit" [disabled]="!registro.valid">Actualizar</ion-button>
+    <ion-button (click)="dismiss()">Cancelar</ion-button>
   </form>
 </ion-content>

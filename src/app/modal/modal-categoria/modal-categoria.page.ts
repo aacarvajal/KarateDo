@@ -32,7 +32,7 @@ export class ModalCategoriaPage implements OnInit {
 
       descripcion: [this.navparams.get('descripcion'), Validators.required],
       sistema: [this.navparams.get('sistema')],
-      
+
     });
   }
 
@@ -41,6 +41,7 @@ export class ModalCategoriaPage implements OnInit {
 
   //este metodo se encarga de deshabilitar el modal
   dismiss() {
+
     this.modalcontroller.dismiss();
 
   }

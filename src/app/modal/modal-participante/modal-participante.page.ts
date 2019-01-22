@@ -44,6 +44,7 @@ export class ModalParticipantePage implements OnInit {
 
   //este metodo se encarga de deshabilitar el modal
   dismiss() {
+    
     this.modalcontroller.dismiss();
 
   }

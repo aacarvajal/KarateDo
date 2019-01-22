@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar color="warning">
+  <ion-toolbar color="primary">
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
@@ -16,12 +16,11 @@
 </ion-header>
 
 <ion-content>
-
   <ion-refresher (ionRefresh)="doRefresh($event)">
     <!--refrescar-->
     <!--se ejecuta cuando se ejecuta ionRefresh-->
     <ion-refresher-content pullingIcon="arrow-dropdown" showCancelButton cancelButtonText="Cancelar" pullingText="Arrastra para refrescar"
-      refreshingSpinner="crescent" refreshingText="Cargando...">
+      refreshingSpinner="crescent" refreshingText="Cargando datos">
     </ion-refresher-content>
   </ion-refresher>
 

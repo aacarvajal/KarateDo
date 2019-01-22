@@ -5,6 +5,7 @@ import { ServiciosService } from '../servicios/servicios.service';
 import { ServCategoriaService } from '../servicios/serv-categoria.service';
 import { ModalParticipantePage } from '../modal/modal-participante/modal-participante.page';
 import { ModalCategoriaPage } from '../modal/modal-categoria/modal-categoria.page';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-tab1',
@@ -18,15 +19,17 @@ export class Tab1Page {
   listCateg = [];
   listPanelPartic = [];
   listPanelCat = [];
+  myloading: any;
+  timeout;
 
   karate: string = "participante";
   isAndroid: boolean = false;
 
-  constructor(private serv: ServiciosService,
-    private servCat: ServCategoriaService,
+  constructor(public serv: ServiciosService,
+    public servCat: ServCategoriaService,
     public loadingController: LoadingController,
-    private router: Router,
-    private alertController: AlertController,
+    public router: Router,
+    public alertController: AlertController,
     public modalController: ModalController,
     platform: Platform) {
 
@@ -35,9 +38,13 @@ export class Tab1Page {
 
   }
 
+  dismiss() {
+    this.modalController.dismiss();
+  }
+
   //Analizar el ciclo de vida de los componentes: justo cuando se hace activa
   ionViewDidEnter() {//es igual que el ngInit
-    this.presentLoading("Cargando");//texto de el loading
+    this.show("Cargando");//texto de el loading
     this.serv.leeParticipantes()
       .subscribe((querySnapshot) => {
         this.listPartic = [];
@@ -49,23 +56,23 @@ export class Tab1Page {
         });
         //console.log(this.listPartic);
         this.listPanelPartic = this.listPartic;
-        this.loadingController.dismiss();
-      });
-
-      this.presentLoading("Cargando");//texto de el loading
-      this.servCat.leeCategorias()
-        .subscribe((querySnapshot) => {
-          this.listCateg = [];
-          //this.delete();
-          querySnapshot.forEach((doc) => {
-            // doc.data() is never undefined for query doc snapshots
-            //console.log(doc.id, " => ", doc.data());
-            this.listCateg.push({ id: doc.id, ...doc.data() });
+        //categoria
+        this.servCat.leeCategorias()
+          .subscribe((querySnapshot) => {
+            this.listCateg = [];
+            //this.delete();
+            querySnapshot.forEach((doc) => {
+              // doc.data() is never undefined for query doc snapshots
+              //console.log(doc.id, " => ", doc.data());
+              this.listCateg.push({ id: doc.id, ...doc.data() });
+            });
+            //console.log(this.listPartic);
+            this.listPanelCat = this.listCateg;
+            //no loading
+            this.myloading.dismiss();
           });
-          //console.log(this.listPartic);
-          this.listPanelCat = this.listCateg;
-          this.loadingController.dismiss();
-        });
+
+      });
 
   }
 
@@ -84,40 +91,59 @@ export class Tab1Page {
         });
         this.listPanelPartic = this.listPartic;
         refresher.target.complete();//para que se cierre el refresh
+        //categoria
+        this.servCat.leeCategorias()
+          .subscribe(querySnapshot => {
+            this.listCateg = [];
+            //this.delete(); //Es un hack para solucionar un bug con el refresher y las listas
+            // dinámicas (ngFor) 
+            querySnapshot.forEach((doc) => {
+              //console.log(doc.data());//.data devuelve un objeto
+              //paydata devuelve un objeto de un array
+              this.listCateg.push({ id: doc.id, ...doc.data() });//push=añadir elementos a un array
+              //los 3 puntos en typescript convierte un objeto a json
+            });
+            this.listPanelCat = this.listCateg;
+            refresher.target.complete();//para que se cierre el refresh
+          });
+
       });
 
-      this.servCat.leeCategorias()
-      .subscribe(querySnapshot => {
-        this.listCateg = [];
-        //this.delete(); //Es un hack para solucionar un bug con el refresher y las listas
-        // dinámicas (ngFor) 
-        querySnapshot.forEach((doc) => {
-          //console.log(doc.data());//.data devuelve un objeto
-          //paydata devuelve un objeto de un array
-          this.listCateg.push({ id: doc.id, ...doc.data() });//push=añadir elementos a un array
-          //los 3 puntos en typescript convierte un objeto a json
-        });
-        this.listPanelCat = this.listCateg;
-        refresher.target.complete();//para que se cierre el refresh
-      });
   }
 
-  /*async delete() { //para solucionar el tema de list-items-sliding con ngfor
-    await this.dynamicList.closeSlidingItems();
-  }*/
-
-  async presentLoading(msg) {
+  /*async presentLoading(msg) {
     let myloading = await this.loadingController.create({
       message: msg
     });
     return await myloading.present();
+  }*/
+
+  //muestra el loading al iniciar
+  async show(msg) {
+    this.myloading = await this.loadingController.create({
+      message: msg,
+      spinner: "bubbles",
+      //animated: true,
+      leaveAnimation: null
+    });
+    this.timeout = setTimeout(() => {
+      this.myloading.dismiss();
+      //this.toast.show(this.translate.instant("errorloading"));
+    }, environment.tiempoMaxCarga);
+    await this.myloading.present();
+  }
+  hide() {
+    if (this.myloading) {
+      clearTimeout(this.timeout);
+      this.myloading.dismiss();
+    }
   }
 
   //edita una Participante ya creada
   async editarParticipante(id: any, nombre: any, apellido: any, edad: any, grado: any) {
     const modal = await this.modalController.create({
       component: ModalParticipantePage,
-      componentProps: { id, nombre, apellido, edad, grado}
+      componentProps: { id, nombre, apellido, edad, grado }
     });
 
     //actualiza el tab1 que mostrara la Participante modificada
@@ -135,10 +161,10 @@ export class Tab1Page {
   async editarCategoria(id: any, descripcion: any, sistema: any) {
     const modal = await this.modalController.create({
       component: ModalCategoriaPage,
-      componentProps: { id, descripcion, sistema}
+      componentProps: { id, descripcion, sistema }
     });
 
-    //actualiza el tab1 que mostrara la Participante modificada
+    //actualiza el tab1 que mostrara la Categoria modificada
     modal.onDidDismiss()
       .then(() => {//se ejecuta cuando tiene exito
 

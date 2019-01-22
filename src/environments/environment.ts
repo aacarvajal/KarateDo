@@ -18,6 +18,7 @@ export const environment = {
   temaXDefecto:"light",  //tema por defecto
   idiomaDisponible:['es','en'], //idiomas disponibles de la aplicación
   idiomaXDefecto:"es",
+  tiempoMaxCarga:10000,  //Tiempo máximo que puede estar cargando la aplicación, supera deja de cargar y muestra error en carga
 };
 
 /*
