@@ -16,6 +16,7 @@ import { IonicStorageModule } from '@ionic/storage';
 import { TranslateModule, TranslateLoader,TranslatePipe } from '@ngx-translate/core';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { Vibration } from '@ionic-native/vibration/ngx';
 export function setTranslateLoader(http: any) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
@@ -45,7 +46,8 @@ export function setTranslateLoader(http: any) {
   providers: [
     StatusBar,
     SplashScreen,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    Vibration
   ],
   bootstrap: [AppComponent]
 })

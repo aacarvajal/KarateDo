@@ -7,6 +7,7 @@ import { ModalParticipantePage } from '../modal/modal-participante/modal-partici
 import { ModalCategoriaPage } from '../modal/modal-categoria/modal-categoria.page';
 import { environment } from 'src/environments/environment';
 
+
 @Component({
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
@@ -31,7 +32,7 @@ export class Tab1Page {
     public router: Router,
     public alertController: AlertController,
     public modalController: ModalController,
-    platform: Platform) {
+    public platform: Platform) {
 
     this.initializeItems();
     this.isAndroid = platform.is('android');
@@ -110,13 +111,6 @@ export class Tab1Page {
       });
 
   }
-
-  /*async presentLoading(msg) {
-    let myloading = await this.loadingController.create({
-      message: msg
-    });
-    return await myloading.present();
-  }*/
 
   //muestra el loading al iniciar
   async show(msg) {

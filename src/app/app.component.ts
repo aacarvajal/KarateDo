@@ -7,7 +7,7 @@ import { AuthenticationService } from './servicios/authentication.service';
 import { ThemeSwitcherService } from './servicios/theme-switcher.service';
 import { environment } from 'src/environments/environment';
 import { TranslateService } from '@ngx-translate/core';
-
+import { Vibration } from '@ionic-native/vibration/ngx';
 
 @Component({
   selector: 'app-root',
@@ -42,6 +42,7 @@ export class AppComponent {
     private authS: AuthenticationService,
     private themeS: ThemeSwitcherService,
     private translate: TranslateService,
+    private vibration: Vibration,
     private statusBar: StatusBar
   ) {
 
@@ -92,6 +93,12 @@ export class AppComponent {
       this.authS.setLang("es");
       this.translate.use("es");
     }
+  }
+
+  vibracion() {
+    console.log("vibra");
+    this.vibration.vibrate([5000, 1500, 5000]);
+
   }
 
 }
