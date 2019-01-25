@@ -30,6 +30,11 @@ export class AppComponent {
       title: 'Añadir categorias',
       url: '/tab3',
       icon: 'add-circle'
+    },
+    {
+      title: 'Puntuacion',
+      url: '/puntos',
+      icon: 'add-circle'
     }
   ];
 

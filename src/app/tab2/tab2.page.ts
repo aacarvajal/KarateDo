@@ -14,8 +14,6 @@ export class Tab2Page {
 
   private reg: FormGroup; //Instancia del FormGroup de nueva.page.html
   myloading: any; //mejorable con un servicio destinado a estos menesteres...
-  listPanelCat: any = [];
-  listCateg: any = [];
   //Lo usamos para mostrar un cargando mientras se realiza la operación.
 
   constructor(private formBuilder: FormBuilder,//sin el formbuilder no se pueden crear los campos dentro del formulario
@@ -30,27 +28,8 @@ export class Tab2Page {
       apellido: [''],
       edad: [''],
       grado: [''],
-      categoria: ['']
     });
   }
-
-  /*anadirCat(){
-
-    this.servCat.leeCategorias()
-    .subscribe((querySnapshot) => {
-      this.listCateg = [];
-      //this.delete();
-      querySnapshot.forEach((doc) => {
-        // doc.data() is never undefined for query doc snapshots
-        //console.log(doc.id, " => ", doc.data());
-        this.listCateg.push({ id: doc.id, ...doc.data() });
-      });
-      //console.log(this.listCateg);
-      this.listPanelCat = this.listCateg;
-      this.loadingController.dismiss();
-    });
-
-  }*/
 
   /* Se ejecuta al submit el formulario. Crea un objeto proveniente del formulario (sería
  igual que this.reg.value) y llama a la función agregaNota del servicio. Gestiona la
@@ -60,8 +39,7 @@ export class Tab2Page {
       nombre: this.reg.get("nombre").value,
       apellido: this.reg.get("apellido").value,
       edad: this.reg.get("edad").value,
-      grado: this.reg.get("grado").value,
-      categoria: this.reg.get("categoria").value
+      grado: this.reg.get("grado").value
     };
     /* Mostramos el cargando... */
     this.myloading = this.presentLoading();
@@ -74,7 +52,6 @@ export class Tab2Page {
           apellido: '',
           edad: '',
           grado: '',
-          categoria: ''
         });
         /* Cerramos el cargando...*/
         this.loadingController.dismiss();//cierra el loading

@@ -7,7 +7,7 @@
   <form [formGroup]="registro" (ngSubmit)="actualizarFormulario()">
     <ion-item>
       <ion-label>Nombre</ion-label>
-      <ion-input type="text" formControlName="nombre"></ion-input>
+      <ion-input formControlName="nombre"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>Apellidos</ion-label>
@@ -22,6 +22,7 @@
       <ion-input formControlName="grado"></ion-input>
     </ion-item>
     <ion-button type="submit" [disabled]="!registro.valid">Actualizar</ion-button>
-    <ion-button (click)="dismiss()">Cancelar</ion-button>
+    <ion-button (click)="dismiss()">Cancelar</ion-button>    
+    <ion-button (click)="anadirPuntos()">Puntuacion</ion-button>
   </form>
 </ion-content>

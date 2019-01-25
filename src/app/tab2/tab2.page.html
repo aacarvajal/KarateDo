@@ -30,15 +30,6 @@
       <ion-label>Grado</ion-label>
       <ion-input type="text" formControlName="grado"></ion-input>
     </ion-item>
-
-    <!-- <ion-item>
-      <ion-label>Categorias</ion-label>
-      <ion-select value="categoria" ok-text="Okay" cancel-text="Dismiss" [(ngModel)]="categoria" multiple="true"
-       *ngFor="let item of listPanelCat; let i = index">
-        <ion-select-option>{{item.descripcion}}</ion-select-option>
-        <ion-select-option>prueba</ion-select-option>
-      </ion-select>
-    </ion-item> -->
     <ion-button type="submit" [disabled]="!reg.valid">Guardar</ion-button>
   </form>
 </ion-content>

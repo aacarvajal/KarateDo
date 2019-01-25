@@ -12,7 +12,8 @@ export const environment = {
     storageBucket: "karatedo-3969f.appspot.com",
     messagingSenderId: "539042406581",
     regisColeccion: "registro",
-    catColeccion: "Categorias"
+    catColeccion: "Categorias",
+    puntosColeccion: "puntos"
   },
 
   temaXDefecto:"light",  //tema por defecto

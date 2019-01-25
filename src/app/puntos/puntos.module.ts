@@ -5,24 +5,25 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { ModalParticipantePage } from './modal-participante.page';
-import { PuntosParticipantePage } from '../puntos-participante/puntos-participante.page';
+import { PuntosPage } from './puntos.page';
+import { PuntosParticipantePage } from '../modal/puntos-participante/puntos-participante.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: ModalParticipantePage
+    component: PuntosPage
   }
 ];
 
 @NgModule({
   imports: [
     CommonModule,
-    FormsModule, 
+    FormsModule,
     IonicModule,
+    ReactiveFormsModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [ModalParticipantePage, PuntosParticipantePage],
-  entryComponents: [PuntosParticipantePage],
+  declarations: [PuntosPage, ],//PuntosParticipantePage
+  entryComponents:[],//PuntosParticipantePage
 })
-export class ModalParticipantePageModule { }
+export class PuntosPageModule {}

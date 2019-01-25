@@ -25,21 +25,24 @@
   </ion-refresher>
 
   <ion-segment [(ngModel)]="karate">
-    <ion-segment-button layout="icon-start" value="0" style="--padding-end:0px;--padding-start:0px" value="Participantes">
-      Participantes
+    <ion-segment-button layout="icon-start" value="0" style="text-size-adjust:5px; --padding-end:0px;--padding-start:0px" value="Participantes">
+      Partic
     </ion-segment-button>
-    <ion-segment-button layout="icon-start" value="0" style="--padding-end:0px;--padding-start:0px" value="Categorias">
+    <ion-segment-button layout="icon-start" value="0" style="text-size-adjust:5px; --padding-end:0px;--padding-start:0px" value="Categorias">
       Categorias
+    </ion-segment-button>
+    <ion-segment-button layout="icon-start" value="0" style="text-size-adjust:5px; --padding-start:0px;" value="Puntos">
+      Puntos
     </ion-segment-button>
 
   </ion-segment>
   <div [ngSwitch]="karate">
-    
+
     <ion-list #dynamicList id="dynamicList" *ngSwitchCase="'Participantes'">
       <ion-item *ngFor="let item of listPanelPartic;let i = index" (click)="editarParticipante(item.id,item.nombre,item.apellido,item.edad,item.grado)">
         <label>
           <p>{{item.nombre}} {{item.apellido}}</p>
-          <p>{{item.grado}}</p>
+          <p>{{item.grado}}{{item.p1}}</p>
         </label>
       </ion-item>
     </ion-list>
@@ -52,6 +55,15 @@
         </label>
       </ion-item>
     </ion-list>
+
+    <!-- <ion-list #dynamicList id="dynamicList" *ngSwitchCase="'Puntos'">
+        <ion-item *ngFor="let item of listPanelPartic;let i = index" (click)="anadirPuntos(item.id,item.nombre,item.p1)">
+          <label>
+            <p>{{item.nombre}} {{item.apellido}}</p>
+            <p>Puntos: {{item.p1}}, {{item.p2}}, {{item.p3}}</p>
+          </label>
+        </ion-item>
+      </ion-list> -->
 
   </div>
 

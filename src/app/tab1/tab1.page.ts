@@ -6,6 +6,7 @@ import { ServCategoriaService } from '../servicios/serv-categoria.service';
 import { ModalParticipantePage } from '../modal/modal-participante/modal-participante.page';
 import { ModalCategoriaPage } from '../modal/modal-categoria/modal-categoria.page';
 import { environment } from 'src/environments/environment';
+import { PuntosParticipantePage } from '../modal/puntos-participante/puntos-participante.page';
 
 
 @Component({
@@ -134,10 +135,10 @@ export class Tab1Page {
   }
 
   //edita una Participante ya creada
-  async editarParticipante(id: any, nombre: any, apellido: any, edad: any, grado: any) {
+  async editarParticipante(id: any, nombre: any, apellido: any, edad: any, grado: any, p1: any) {
     const modal = await this.modalController.create({
       component: ModalParticipantePage,
-      componentProps: { id, nombre, apellido, edad, grado }
+      componentProps: { id, nombre, apellido, edad, grado, p1 }
     });
 
     //actualiza el tab1 que mostrara la Participante modificada
@@ -170,10 +171,22 @@ export class Tab1Page {
 
   }
 
-  /*irNueva() {
-    console.log("Ir a Nueva")
-    this.router.navigateByUrl('/tabs/(tab2:tab2)');
-  }*/
+  async anadirPuntos(id: any, nombre: any, p1: any, p2: any, p3: any) {
+    const modal = await this.modalController.create({
+      component: PuntosParticipantePage,
+      componentProps: { id, nombre, p1, p2, p3 }
+    });
+
+    modal.onDidDismiss()
+      .then(() => {//se ejecuta cuando tiene exito
+
+        this.ionViewDidEnter();
+
+      });
+
+    await modal.present();
+
+  }
 
   borrarParticipante(id) {
 
@@ -187,29 +200,6 @@ export class Tab1Page {
 
   }
 
-  async presentAlertConfirm(id: any) {
-    const alert = await this.alertController.create({
-      header: '!Atención!',
-      message: '¿Quiere borrar la Participante?',
-      buttons: [
-        {
-          text: 'Cancelar',
-          role: 'cancelar',
-
-        }, {
-          text: 'Aceptar',
-          handler: () => {
-            this.borrarParticipante(id);
-            this.ionViewDidEnter();//refresca automaticamente despues de borrar
-            //console.log('Confirmar');
-          }
-        }
-      ]
-    });
-
-    await alert.present();
-  }
-
 
   //inicializa el array de filtrar
   initializeItems(): void {
@@ -220,7 +210,7 @@ export class Tab1Page {
   }
 
   getFilteredParticipante($event) {
-    // resetea serv los objetos y pone el array de nuevo con serv los elementos
+    // resetea todos los objetos y pone el array de nuevo con todos los elementos
     this.initializeItems();
 
     // Establece el valor del search bar
@@ -236,7 +226,7 @@ export class Tab1Page {
   }
 
   getFilteredCategoria($event) {
-    // resetea serv los objetos y pone el array de nuevo con serv los elementos
+    // resetea todos los objetos y pone el array de nuevo con todos los elementos
     this.initializeItems();
 
     // Establece el valor del search bar

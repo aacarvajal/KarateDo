@@ -18,12 +18,12 @@
           </ion-menu-toggle>
         </ion-list>
         <ion-item color="primary" lines="none">
-          <ion-icon slot="start" name="moon" color="light"></ion-icon>
+          <ion-icon slot="start" name="moon"></ion-icon>
           <ion-label style="font-size:0.95rem">{{"changeSkin" | translate}}</ion-label>
           <ion-toggle slot="end" [(ngModel)]="skinmenu" (ionChange)="changeSkin($event)"></ion-toggle>
         </ion-item>
         <ion-item color="primary" lines="none">
-          <ion-icon slot="start" name="flag" color="light"></ion-icon>
+          <ion-icon slot="start" name="flag"></ion-icon>
           <ion-label style="font-size:0.95rem">{{"changeLang" | translate}}</ion-label>
           <ion-toggle slot="end" [(ngModel)]="langmenu" (ionChange)="changeLang($event)"></ion-toggle>
         </ion-item>
@@ -32,7 +32,7 @@
         </ion-item>
       </ion-content>
     </ion-menu>
-
+    
     <ion-router-outlet main></ion-router-outlet>
 
   </ion-split-pane>

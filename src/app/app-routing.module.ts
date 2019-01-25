@@ -7,7 +7,9 @@ const routes: Routes = [
   { path: 'tab2', loadChildren: './tab2/tab2.module#Tab2PageModule' },
   { path: 'tab3', loadChildren: './tab3/tab3.module#Tab3PageModule' },
   { path: 'modal-participante', loadChildren: './modal/modal-participante/modal-participante.module#ModalParticipantePageModule' },
-  { path: 'modal-categoria', loadChildren: './modal/modal-categoria/modal-categoria.module#ModalCategoriaPageModule' }
+  { path: 'modal-categoria', loadChildren: './modal/modal-categoria/modal-categoria.module#ModalCategoriaPageModule' },
+  { path: 'puntos', loadChildren: './puntos/puntos.module#PuntosPageModule' },
+  { path: 'puntos-participante', loadChildren: './modal/puntos-participante/puntos-participante.module#PuntosParticipantePageModule' }
 ];
 
 @NgModule({

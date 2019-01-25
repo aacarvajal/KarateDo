@@ -36,6 +36,15 @@ const routes: Routes = [
         ]
       },
       {
+        path: 'puntos',
+        children: [
+          {
+            path: '',
+            loadChildren: '../puntos/puntos.module#PuntosPageModule'
+          }
+        ]
+      },
+      {
         path: '',
         redirectTo: '/tabs/tab1',
         pathMatch: 'full'

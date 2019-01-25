@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Puntuacion
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <!--refrescar-->
+    <!--se ejecuta cuando se ejecuta ionRefresh-->
+    <ion-refresher-content pullingIcon="arrow-dropdown" showCancelButton cancelButtonText="Cancelar" pullingText="Arrastra para refrescar"
+      refreshingSpinner="crescent" refreshingText="Cargando datos">
+    </ion-refresher-content>
+  </ion-refresher>
+  <ion-list #dynamicList id="dynamicList">
+      <ion-item *ngFor="let item of listPanelPartic;let i = index" (click)="anadirPuntos(item.id,item.nombre, item.apellido, item.p1,item.p2,item.p3)">
+        <label>
+          <p>{{item.nombre}} {{item.apellido}}</p>
+          <p>P1: {{item.p1}}</p>
+          <p>P2: {{item.p2}}</p>
+          <p>P3: {{item.p3}}</p>
+        </label>
+      </ion-item>
+    </ion-list>
+
+</ion-content>
