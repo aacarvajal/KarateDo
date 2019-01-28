@@ -7,23 +7,23 @@
 <ion-content padding>
   <form [formGroup]="registro" (ngSubmit)="actualizarFormulario()">
     <ion-item>
-      <ion-label>Nombre</ion-label>
+      <ion-label>{{"name" | translate}} </ion-label>
       <ion-input formControlName="nombre"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label>Apellidos</ion-label>
+      <ion-label>{{"surname" | translate}} </ion-label>
       <ion-input formControlName="apellido"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label>Edad</ion-label>
+      <ion-label>{{"age" | translate}} </ion-label>
       <ion-input formControlName="edad"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label>Grado</ion-label>
+      <ion-label>{{"rank" | translate}} </ion-label>
       <ion-input formControlName="grado"></ion-input>
     </ion-item>
-    <ion-button type="submit" [disabled]="!registro.valid">Actualizar</ion-button>
+    <ion-button type="submit" [disabled]="!registro.valid">{{"safe" | translate}} </ion-button>
     <!-- <ion-button (click)="dismiss()">Cancelar</ion-button> -->
-    <ion-button (click)="anadirPuntos()">Puntuacion</ion-button>
+    <ion-button (click)="anadirPuntos()">{{"score" | translate}} </ion-button>
   </form>
 </ion-content>

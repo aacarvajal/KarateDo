@@ -4,7 +4,7 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>
-      Categorias
+        {{"categories" | translate}}
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -14,16 +14,16 @@
   <form [formGroup]="cat" (ngSubmit)="logForm()">
     <!--formgroup es un binding (recoge todos los valores) se pondra el mismo nombre en el controlador-->
     <ion-item>
-      <ion-label>Descripcion</ion-label>
+      <ion-label>{{"description" | translate}} </ion-label>
       <ion-input type="text" formControlName="descripcion"></ion-input>
       <!--dentro de la variable hay un apartado que se llama title (todo.title)-->
       <!--por cada item habra un formControlName-->
     </ion-item>
     <ion-item>
-      <ion-label>Sistema de puntos</ion-label>
+      <ion-label>{{"system" | translate}} </ion-label>
       <ion-textarea type="text" formControlName="sistema"></ion-textarea>
     </ion-item>
-    <ion-button type="submit" [disabled]="!cat.valid">Guardar</ion-button>
+    <ion-button type="submit" [disabled]="!cat.valid">{{"safe" | translate}} </ion-button>
   </form>
 
 </ion-content>

@@ -1,17 +1,17 @@
 <ion-header>
   <ion-toolbar color="primary">
-    <ion-title><ion-icon class="flecha" name="arrow-back" (click)="dismiss()"></ion-icon> Añadir Puntuación</ion-title>
+    <ion-title><ion-icon class="flecha" name="arrow-back" (click)="dismiss()"></ion-icon> {{"add score" | translate}} </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
   <form [formGroup]="puntos" (ngSubmit)="actualizarFormulario()">
     <ion-item>
-      <ion-label>Nombre</ion-label>
+      <ion-label>{{"name" | translate}} </ion-label>
       <ion-input formControlName="nombre">{{nombre}}</ion-input>
     </ion-item>
     <ion-item>
-      <ion-label>Apellido</ion-label>
+      <ion-label>{{"surname" | translate}} </ion-label>
       <ion-input formControlName="apellido">{{apellido}}</ion-input>
     </ion-item>
     <ion-item>
@@ -26,8 +26,8 @@
       <ion-label>P3</ion-label>
       <ion-input type="number" formControlName="p3"></ion-input>
     </ion-item>
-    <ion-button type="submit">Actualizar</ion-button>
-    <ion-button (click)="dismiss()">Cancelar</ion-button>
+    <ion-button type="submit">{{"safe" | translate}} </ion-button>
+    <!-- <ion-button (click)="dismiss()">Cancelar</ion-button> -->
   </form>
 </ion-content>
 

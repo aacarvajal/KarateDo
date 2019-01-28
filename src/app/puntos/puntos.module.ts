@@ -7,6 +7,9 @@ import { IonicModule } from '@ionic/angular';
 
 import { PuntosPage } from './puntos.page';
 import { PuntosParticipantePage } from '../modal/puntos-participante/puntos-participante.page';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { setTranslateLoader } from 'src/app/app.module';
+import { HttpClient } from '@angular/common/http';
 
 const routes: Routes = [
   {
@@ -21,9 +24,15 @@ const routes: Routes = [
     FormsModule,
     IonicModule,
     ReactiveFormsModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    TranslateModule.forChild({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: (setTranslateLoader), deps: [HttpClient]
+      }
+    })
   ],
-  declarations: [PuntosPage, ],//PuntosParticipantePage
-  entryComponents:[],//PuntosParticipantePage
+  declarations: [PuntosPage, ],
+  entryComponents:[],
 })
 export class PuntosPageModule {}

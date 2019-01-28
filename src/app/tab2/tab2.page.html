@@ -4,7 +4,7 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>
-      Participantes
+        {{"competitors" | translate}} 
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -13,23 +13,23 @@
   <form [formGroup]="reg" (ngSubmit)="logForm()">
     <!--formgroup es un binding (recoge todos los valores) se pondra el mismo nombre en el controlador-->
     <ion-item>
-      <ion-label>Nombre</ion-label>
+      <ion-label>{{"name" | translate}} </ion-label>
       <ion-input type="text" formControlName="nombre"></ion-input>
       <!--dentro de la variable hay un apartado que se llama title (todo.title)-->
       <!--por cada item habra un formControlName-->
     </ion-item>
     <ion-item>
-      <ion-label>Apellido</ion-label>
+      <ion-label>{{"surname" | translate}} </ion-label>
       <ion-input type="text" formControlName="apellido"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label>Edad</ion-label>
+      <ion-label>{{"age" | translate}} </ion-label>
       <ion-input type="text" formControlName="edad"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label>Grado</ion-label>
+      <ion-label>{{"rank" | translate}} </ion-label>
       <ion-input type="text" formControlName="grado"></ion-input>
     </ion-item>
-    <ion-button type="submit" [disabled]="!reg.valid">Guardar</ion-button>
+    <ion-button type="submit" [disabled]="!reg.valid">{{"safe" | translate}} </ion-button>
   </form>
 </ion-content>

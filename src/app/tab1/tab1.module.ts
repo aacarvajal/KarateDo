@@ -7,10 +7,11 @@ import { Tab1Page } from './tab1.page';
 import { ModalCategoriaPage } from '../modal/modal-categoria/modal-categoria.page';
 import { ModalParticipantePage } from '../modal/modal-participante/modal-participante.page';
 import { PuntosParticipantePage } from '../modal/puntos-participante/puntos-participante.page';
-import { HttpClientModule } from '@angular/common/http';
+
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
-import { setTranslateLoader } from '../app.module';
-import { HttpClient } from 'selenium-webdriver/http';
+import { setTranslateLoader } from 'src/app/app.module';
+import { HttpClient } from '@angular/common/http';
+
 
 @NgModule({
   imports: [
@@ -18,7 +19,14 @@ import { HttpClient } from 'selenium-webdriver/http';
     CommonModule,
     FormsModule, 
     ReactiveFormsModule,
-    RouterModule.forChild([{ path: '', component: Tab1Page }])
+    RouterModule.forChild([{ path: '', component: Tab1Page }]),
+    TranslateModule.forChild({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: (setTranslateLoader), deps: [HttpClient]
+      }
+    })
+
   ],
 declarations: [Tab1Page, ModalParticipantePage, ModalCategoriaPage,PuntosParticipantePage ],
   entryComponents: [ModalParticipantePage, ModalCategoriaPage, PuntosParticipantePage ]

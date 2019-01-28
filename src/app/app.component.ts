@@ -8,6 +8,7 @@ import { ThemeSwitcherService } from './servicios/theme-switcher.service';
 import { environment } from 'src/environments/environment';
 import { TranslateService } from '@ngx-translate/core';
 import { Vibration } from '@ionic-native/vibration/ngx';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -41,14 +42,14 @@ export class AppComponent {
   langmenu: any;
   skinmenu: any;
 
-  constructor(
-    private platform: Platform,
+  constructor(private platform: Platform,
     private splashScreen: SplashScreen,
     private authS: AuthenticationService,
+    private router: Router,
     private themeS: ThemeSwitcherService,
     private translate: TranslateService,
     private vibration: Vibration,
-    private statusBar: StatusBar
+    private statusBar: StatusBar,
   ) {
 
     this.skinmenu = (environment.temaXDefecto == "light" ? false : true);
@@ -79,6 +80,31 @@ export class AppComponent {
     });
   }
 
+  lista() {
+
+    this.router.navigate(['']);
+
+  }
+
+  partic() {
+
+    this.router.navigate(['tab2']);
+
+  }
+
+  categ() {
+
+    this.router.navigate(['tab3']);
+
+  }
+
+  puntos() {
+
+    this.router.navigate(['puntos']);
+
+  }
+
+
   changeSkin(e) {
     if (e.detail.checked) {
       this.authS.setSkin("dark");
@@ -87,6 +113,9 @@ export class AppComponent {
       this.authS.setSkin("light");
       this.themeS.setTheme("light");
     }
+
+    this.vibration.vibrate(500);
+
   }
 
   changeLang(e) {
@@ -98,6 +127,9 @@ export class AppComponent {
       this.authS.setLang("es");
       this.translate.use("es");
     }
+
+    this.vibration.vibrate(500);
+
   }
 
   vibracion() {
