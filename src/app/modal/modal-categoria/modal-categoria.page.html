@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar color="primary">
-    <ion-title>Editar Categoria</ion-title>
+    <ion-title><ion-icon class="flecha" name="arrow-back" (click)="dismiss()"></ion-icon> Editar Categoria</ion-title>
   </ion-toolbar>
 </ion-header>
 <ion-content padding>
@@ -14,6 +14,6 @@
       <ion-input type="text" formControlName="sistema"></ion-input>
     </ion-item>
     <ion-button type="submit" [disabled]="!Categoria.valid">Actualizar</ion-button>
-    <ion-button (click)="dismiss()">Cancelar</ion-button>
+    <!-- <ion-button (click)="dismiss()">Cancelar</ion-button> -->
   </form>
 </ion-content>

@@ -18,7 +18,7 @@
     </ion-refresher-content>
   </ion-refresher>
   <ion-list #dynamicList id="dynamicList">
-      <ion-item *ngFor="let item of listPanelPartic;let i = index" (click)="anadirPuntos(item.id,item.nombre, item.apellido, item.p1,item.p2,item.p3)">
+      <ion-item *ngFor="let item of listPanelPartic;let i = index">
         <label>
           <p>{{item.nombre}} {{item.apellido}}</p>
           <p>P1: {{item.p1}}</p>

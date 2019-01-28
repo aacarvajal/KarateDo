@@ -18,16 +18,11 @@ export class PuntosParticipantePage implements OnInit {
   private puntos: FormGroup;
   myloading: any;
   id: any;
-  /*nombre: any;
-  apellido: any;
-  p1: any;
-  p2: any;
-  p3: any;*/
   timeout;
   listPuntos = [];
   listPanelPuntos = [];
   @Input() nombre: any;
-
+  @Input() apellido: any;
 
   constructor(public serv: ServiciosService,
     public servPuntos: ServPuntosService,
@@ -45,8 +40,8 @@ export class PuntosParticipantePage implements OnInit {
 
     this.puntos = this.formBuilder.group({
 
-      nombre: [this.navparams.get('nombre'), Validators.required],
-      apellido: [this.navparams.get('apellido'), Validators.required],
+      nombre: [this.navparams.get('nombre')],
+      apellido: [this.navparams.get('apellido')],
       p1: [this.navparams.get('p1')],
       p2: [this.navparams.get('p2')],
       p3: [this.navparams.get('p3')],
@@ -74,7 +69,7 @@ export class PuntosParticipantePage implements OnInit {
     this.myloading = this.presentLoading();
 
     //se llama al metodo de actualizar del servicio ToDo, al que se le pasaran los datos que se van a modificar
-    this.servPuntos.actualizaPunto(this.id, data)
+    this.servPuntos.agregaPunto(data)
 
       .then((docRef) => {
 
@@ -102,66 +97,66 @@ export class PuntosParticipantePage implements OnInit {
   }
 
   //Analizar el ciclo de vida de los componentes: justo cuando se hace activa
-  ionViewDidEnter() {//es igual que el ngInit
-    this.show("Cargando");//texto de el loading
-    this.serv.leeParticipantes()
-      .subscribe((querySnapshot) => {
-        this.listPuntos = [];
-        //this.delete();
-        querySnapshot.forEach((doc) => {
-          // doc.data() is never undefined for query doc snapshots
-          //console.log(doc.id, " => ", doc.data());
-          this.listPuntos.push({ id: doc.id, ...doc.data() });
-        });
-        //console.log(this.listPuntos);
-        this.listPanelPuntos = this.listPuntos;
+  // ionViewDidEnter() {//es igual que el ngInit
+  //   this.show("Cargando");//texto de el loading
+  //   this.servPuntos.leePuntos()
+  //     .subscribe((querySnapshot) => {
+  //       this.listPuntos = [];
+  //       //this.delete();
+  //       querySnapshot.forEach((doc) => {
+  //         // doc.data() is never undefined for query doc snapshots
+  //         //console.log(doc.id, " => ", doc.data());
+  //         this.listPuntos.push({ id: doc.id, ...doc.data() });
+  //       });
+  //       //console.log(this.listPuntos);
+  //       this.listPanelPuntos = this.listPuntos;
 
-        this.myloading.dismiss();
-      });
+  //       this.myloading.dismiss();
+  //     });
 
 
-  }
+  // }
 
-  //Esta función es llamada por el componente Refresher de IONIC v4
-  doRefresh(refresher) {
-    this.serv.leeParticipantes()
-      .subscribe(querySnapshot => {
-        this.listPuntos = [];
-        //this.delete(); //Es un hack para solucionar un bug con el refresher y las listas
-        // dinámicas (ngFor) 
-        querySnapshot.forEach((doc) => {
-          //console.log(doc.data());//.data devuelve un objeto
-          //paydata devuelve un objeto de un array
-          this.listPuntos.push({ id: doc.id, ...doc.data() });//push=añadir elementos a un array
-          //los 3 puntos en typescript convierte un objeto a json
-        });
-        this.listPanelPuntos = this.listPuntos;
-        refresher.target.complete();//para que se cierre el refresh
+  // //Esta función es llamada por el componente Refresher de IONIC v4
+  // doRefresh(refresher) {
+  //   this.servPuntos.leePuntos()
+  //     .subscribe(querySnapshot => {
+  //       this.listPuntos = [];
+  //       //this.delete(); //Es un hack para solucionar un bug con el refresher y las listas
+  //       // dinámicas (ngFor) 
+  //       querySnapshot.forEach((doc) => {
+  //         //console.log(doc.data());//.data devuelve un objeto
+  //         //paydata devuelve un objeto de un array
+  //         this.listPuntos.push({ id: doc.id, ...doc.data() });//push=añadir elementos a un array
+  //         //los 3 puntos en typescript convierte un objeto a json
+  //       });
+  //       this.listPanelPuntos = this.listPuntos;
+  //       refresher.target.complete();//para que se cierre el refresh
 
-      });
+  //     });
 
-  }
+  // }
 
-  //muestra el loading al iniciar
-  async show(msg) {
-    this.myloading = await this.loadingController.create({
-      message: msg,
-      spinner: "bubbles",
-      //animated: true,
-      leaveAnimation: null
-    });
-    this.timeout = setTimeout(() => {
-      this.myloading.dismiss();
-      //this.toast.show(this.translate.instant("errorloading"));
-    }, environment.tiempoMaxCarga);
-    await this.myloading.present();
-  }
-  hide() {
-    if (this.myloading) {
-      clearTimeout(this.timeout);
-      this.myloading.dismiss();
-    }
-  }
+  // //muestra el loading al iniciar
+  // async show(msg) {
+  //   this.myloading = await this.loadingController.create({
+  //     message: msg,
+  //     spinner: "bubbles",
+  //     //animated: true,
+  //     leaveAnimation: null
+  //   });
+  //   this.timeout = setTimeout(() => {
+  //     this.myloading.dismiss();
+  //     //this.toast.show(this.translate.instant("errorloading"));
+  //   }, environment.tiempoMaxCarga);
+  //   await this.myloading.present();
+  // }
+  // hide() {
+  //   if (this.myloading) {
+  //     clearTimeout(this.timeout);
+  //     this.myloading.dismiss();
+  //   }
+  // }
 
   // async anadirPuntos(id: any, nombre: any, apellido: any,p1: any, p2:any, p3:any) {
   //   const modal = await this.modalController.create({

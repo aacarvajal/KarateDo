@@ -26,17 +26,17 @@
 
   <ion-segment [(ngModel)]="karate">
     <ion-segment-button layout="icon-start" value="0" style="text-size-adjust:5px; --padding-end:0px;--padding-start:0px" value="Participantes">
-      Partic
+      Participantes <!-- {{"competitor" | translate | capitalize}} -->
     </ion-segment-button>
     <ion-segment-button layout="icon-start" value="0" style="text-size-adjust:5px; --padding-end:0px;--padding-start:0px" value="Categorias">
-      Categorias
+       Categorias <!--{{"category" | translate | capitalize}} -->
     </ion-segment-button>
-    <ion-segment-button layout="icon-start" value="0" style="text-size-adjust:5px; --padding-start:0px;" value="Puntos">
+    <!-- <ion-segment-button layout="icon-start" value="0" style="text-size-adjust:5px; --padding-start:0px;" value="Puntos">
       Puntos
-    </ion-segment-button>
+    </ion-segment-button> -->
 
   </ion-segment>
-  <div [ngSwitch]="karate">
+  <div [ngSwitch]="karate"> 
 
     <ion-list #dynamicList id="dynamicList" *ngSwitchCase="'Participantes'">
       <ion-item *ngFor="let item of listPanelPartic;let i = index" (click)="editarParticipante(item.id,item.nombre,item.apellido,item.edad,item.grado)">

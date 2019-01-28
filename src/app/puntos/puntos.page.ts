@@ -101,7 +101,7 @@ export class PuntosPage implements OnInit {
     }
   }
 
-  async anadirPuntos(id: any, nombre: any, p1: any, apellido: any, p2: any, p3: any) {
+  async editarPuntos(id: any, nombre: any, apellido: any, p1: any, p2: any, p3: any) {
     const modal = await this.modalController.create({
       component: PuntosParticipantePage,
       componentProps: { id, nombre, apellido, p1, p2, p3 }

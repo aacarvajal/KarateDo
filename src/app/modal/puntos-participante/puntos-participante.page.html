@@ -1,8 +1,6 @@
 <ion-header>
   <ion-toolbar color="primary">
-    <ion-title>
-      Puntuación
-    </ion-title>
+    <ion-title><ion-icon class="flecha" name="arrow-back" (click)="dismiss()"></ion-icon> Añadir Puntuación</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -10,11 +8,11 @@
   <form [formGroup]="puntos" (ngSubmit)="actualizarFormulario()">
     <ion-item>
       <ion-label>Nombre</ion-label>
-      <ion-input>{{nombre}}</ion-input>
+      <ion-input formControlName="nombre">{{nombre}}</ion-input>
     </ion-item>
     <ion-item>
       <ion-label>Apellido</ion-label>
-      <ion-input>{{apellido}}</ion-input>
+      <ion-input formControlName="apellido">{{apellido}}</ion-input>
     </ion-item>
     <ion-item>
       <ion-label>P1</ion-label>

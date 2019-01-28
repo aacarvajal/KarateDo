@@ -1,11 +1,13 @@
 {
-    
-    "add categories":"Añadir Categorias",
-    "list":"Lista",
-    "competitor":"Participante",
-    "category":"Categoria",
-    "changeLang":"In English",
-    "changeSkin":"Modo Nocturno",
+
+    "add categories": "Añadir Categoria",
+    "list": "Lista",
+    "competitor": "Participante",
+    "competitors": "Participantes",
+    "category": "Categoria",
+    "categories": "Categorias",
+    "changeLang": "In English",
+    "changeSkin": "Modo Nocturno",
 }
 
 /*{

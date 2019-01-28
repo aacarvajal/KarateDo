@@ -16,11 +16,6 @@ export class ModalParticipantePage implements OnInit {
 
   //estas variables se recuperaran de tab1 para que se pueda actualizar la nota
   id: any;
-  /*nombre: any;
-  apellido: any;
-  p1: any;
-  p2: any;
-  p3: any;*/
   public registro: FormGroup;
   myloading: any;//muestra un cartel de cargando
   timeout;
@@ -100,70 +95,71 @@ export class ModalParticipantePage implements OnInit {
     return await this.myloading.present();
   }
 
-  ionViewDidEnter() {//es igual que el ngInit
-    this.show("Cargando");//texto de el loading
-    this.serv.leeParticipantes()
-      .subscribe((querySnapshot) => {
-        this.listPartic = [];
-        //this.delete();
-        querySnapshot.forEach((doc) => {
-          // doc.data() is never undefined for query doc snapshots
-          // console.log(doc.id, " => ", doc.data());
-          this.listPartic.push({ id: doc.id, ...doc.data() });
-        });
-        //console.log(this.listPuntos);
-        this.listPanelPartic = this.listPartic;
-        this.myloading.dismiss();
-      });
+  // ionViewDidEnter() {//es igual que el ngInit
+  //   this.show("Cargando");//texto de el loading
+  //   this.serv.leeParticipantes()
+  //     .subscribe((querySnapshot) => {
+  //       this.listPartic = [];
+  //       //this.delete();
+  //       querySnapshot.forEach((doc) => {
+  //         // doc.data() is never undefined for query doc snapshots
+  //         // console.log(doc.id, " => ", doc.data());
+  //         this.listPartic.push({ id: doc.id, ...doc.data() });
+  //       });
+  //       //console.log(this.listPuntos);
+  //       this.listPanelPartic = this.listPartic;
+  //       this.myloading.dismiss();
+  //     });
 
-  }
+  // }
 
-  //Esta función es llamada por el componente Refresher de IONIC v4
-  doRefresh(refresher) {
-    this.serv.leeParticipantes()
-      .subscribe(querySnapshot => {
-        this.listPartic = [];
-        //this.delete(); //Es un hack para solucionar un bug con el refresher y las listas
-        // dinámicas (ngFor) 
-        querySnapshot.forEach((doc) => {
-          // console.log(doc.data());//.data devuelve un objeto
-          //paydata devuelve un objeto de un array
-          this.listPartic.push({ id: doc.id, ...doc.data() });//push=añadir elementos a un array
-          //los 3 puntos en typescript convierte un objeto a json
-        });
-        this.listPanelPartic = this.listPartic;
-        refresher.target.complete();//para que se cierre el refresh
+  // //Esta función es llamada por el componente Refresher de IONIC v4
+  // doRefresh(refresher) {
+  //   this.serv.leeParticipantes()
+  //     .subscribe(querySnapshot => {
+  //       this.listPartic = [];
+  //       //this.delete(); //Es un hack para solucionar un bug con el refresher y las listas
+  //       // dinámicas (ngFor) 
+  //       querySnapshot.forEach((doc) => {
+  //         // console.log(doc.data());//.data devuelve un objeto
+  //         //paydata devuelve un objeto de un array
+  //         this.listPartic.push({ id: doc.id, ...doc.data() });//push=añadir elementos a un array
+  //         //los 3 puntos en typescript convierte un objeto a json
+  //       });
+  //       this.listPanelPartic = this.listPartic;
+  //       refresher.target.complete();//para que se cierre el refresh
 
-      });
+  //     });
 
-  }
+  // }
 
-  //muestra el loading al iniciar
-  async show(msg) {
-    this.myloading = await this.loadingController.create({
-      message: msg,
-      spinner: "bubbles",
-      //animated: true,
-      leaveAnimation: null
-    });
-    this.timeout = setTimeout(() => {
-      this.myloading.dismiss();
-      //this.toast.show(this.translate.instant("errorloading"));
-    }, environment.tiempoMaxCarga);
-    await this.myloading.present();
-  }
-  hide() {
-    if (this.myloading) {
-      clearTimeout(this.timeout);
-      this.myloading.dismiss();
-    }
-  }
+  // //muestra el loading al iniciar
+  // async show(msg) {
+  //   this.myloading = await this.loadingController.create({
+  //     message: msg,
+  //     spinner: "bubbles",
+  //     //animated: true,
+  //     leaveAnimation: null
+  //   });
+  //   this.timeout = setTimeout(() => {
+  //     this.myloading.dismiss();
+  //     //this.toast.show(this.translate.instant("errorloading"));
+  //   }, environment.tiempoMaxCarga);
+  //   await this.myloading.present();
+  // }
+  // hide() {
+  //   if (this.myloading) {
+  //     clearTimeout(this.timeout);
+  //     this.myloading.dismiss();
+  //   }
+  // }
 
   async anadirPuntos() {
     console.log( this.registro.value.nombre);
      const modal = await this.modalController.create({
       component: PuntosParticipantePage,
-       componentProps: { 'nombre': this.registro.value.nombre, 'apellido': this.registro.value.apellido }
+       componentProps: { 'nombre': this.registro.value.nombre, 'apellido': this.registro.value.apellido,
+       'p1': this.registro.value.p1, 'p2': this.registro.value.p2, 'p3': this.registro.value.p3,}
      });
 
    return await modal.present();

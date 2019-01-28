@@ -1,7 +1,14 @@
 {
 
+    "add categories":"Add category",
+    "list":"List",
+    "competitor": "Competitor",
+    "competitors": "Competitors",
+    "category": "Category",
+    "categories": "Categories",
     "changeLang": "En Español",
     "changeSkin": "Night Mode",
+    
 
 }
 

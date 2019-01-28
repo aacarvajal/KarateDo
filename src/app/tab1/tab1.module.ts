@@ -7,6 +7,10 @@ import { Tab1Page } from './tab1.page';
 import { ModalCategoriaPage } from '../modal/modal-categoria/modal-categoria.page';
 import { ModalParticipantePage } from '../modal/modal-participante/modal-participante.page';
 import { PuntosParticipantePage } from '../modal/puntos-participante/puntos-participante.page';
+import { HttpClientModule } from '@angular/common/http';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { setTranslateLoader } from '../app.module';
+import { HttpClient } from 'selenium-webdriver/http';
 
 @NgModule({
   imports: [
@@ -16,7 +20,7 @@ import { PuntosParticipantePage } from '../modal/puntos-participante/puntos-part
     ReactiveFormsModule,
     RouterModule.forChild([{ path: '', component: Tab1Page }])
   ],
-declarations: [Tab1Page, ModalParticipantePage, ModalCategoriaPage,PuntosParticipantePage ],//PuntosParticipantePage
-  entryComponents: [ModalParticipantePage, ModalCategoriaPage, PuntosParticipantePage ] //PuntosParticipantePage
+declarations: [Tab1Page, ModalParticipantePage, ModalCategoriaPage,PuntosParticipantePage ],
+  entryComponents: [ModalParticipantePage, ModalCategoriaPage, PuntosParticipantePage ]
 })
 export class Tab1PageModule { }

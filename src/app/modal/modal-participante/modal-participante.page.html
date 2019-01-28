@@ -1,8 +1,9 @@
 <ion-header>
   <ion-toolbar color="primary">
-    <ion-title>Editar Participante</ion-title>
+    <ion-title><ion-icon class="flecha" name="arrow-back" (click)="dismiss()"></ion-icon> Editar Participante</ion-title>
   </ion-toolbar>
 </ion-header>
+
 <ion-content padding>
   <form [formGroup]="registro" (ngSubmit)="actualizarFormulario()">
     <ion-item>
@@ -22,7 +23,7 @@
       <ion-input formControlName="grado"></ion-input>
     </ion-item>
     <ion-button type="submit" [disabled]="!registro.valid">Actualizar</ion-button>
-    <ion-button (click)="dismiss()">Cancelar</ion-button>    
+    <!-- <ion-button (click)="dismiss()">Cancelar</ion-button> -->
     <ion-button (click)="anadirPuntos()">Puntuacion</ion-button>
   </form>
 </ion-content>
