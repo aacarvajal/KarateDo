@@ -4,7 +4,7 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>
-        {{"categories" | translate}}
+      {{"categories" | translate}}
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -19,10 +19,19 @@
       <!--dentro de la variable hay un apartado que se llama title (todo.title)-->
       <!--por cada item habra un formControlName-->
     </ion-item>
-    <ion-item>
+    <!-- <ion-item>
       <ion-label>{{"system" | translate}} </ion-label>
       <ion-textarea type="text" formControlName="sistema"></ion-textarea>
-    </ion-item>
+    </ion-item> -->
+    <ion-list>
+      <ion-item>
+        <ion-label>{{"system" | translate}}</ion-label>
+        <ion-select placeholder="Elige una opcion" formControlName="sistema">
+          <ion-select-option value="Puntos">Puntos</ion-select-option>
+          <ion-select-option value="Banderas">Banderas</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
     <ion-button type="submit" [disabled]="!cat.valid">{{"safe" | translate}} </ion-button>
   </form>
 

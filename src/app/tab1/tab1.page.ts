@@ -171,7 +171,7 @@ export class Tab1Page {
 
   }
 
-  async anadirPuntos(id: any, nombre: any, p1: any, p2: any, p3: any) {
+  /*async anadirPuntos(id: any, nombre: any, p1: any, p2: any, p3: any) {
     const modal = await this.modalController.create({
       component: PuntosParticipantePage,
       componentProps: { id, nombre, p1, p2, p3 }
@@ -186,7 +186,7 @@ export class Tab1Page {
 
     await modal.present();
 
-  }
+  }*/
 
   borrarParticipante(id) {
 
