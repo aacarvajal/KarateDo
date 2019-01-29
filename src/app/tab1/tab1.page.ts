@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { LoadingController, AlertController, ModalController, Platform } from '@ionic/angular';
+import { LoadingController, AlertController, ModalController, Platform, IonSlides } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { ServiciosService } from '../servicios/servicios.service';
 import { ServCategoriaService } from '../servicios/serv-categoria.service';
@@ -17,12 +17,19 @@ import { PuntosParticipantePage } from '../modal/puntos-participante/puntos-part
 export class Tab1Page {
 
   @ViewChild('dynamicList') dynamicList;
+  @ViewChild('SwipedTabsSlider') SwipedTabsSlider: IonSlides;
+  //@ViewChild('infiniteScroll') ionInfiniteScroll: IonInfiniteScroll;
+
+  SwipedTabsIndicator: any = null;
+  tabs = ["selectTab(0)", "selectTab(1)"];
   listPartic = [];
   listCateg = [];
   listPanelPartic = [];
   listPanelCat = [];
   myloading: any;
   timeout;
+  public category: any = "0";
+  ntabs = 2;
 
   karate: string = "participante";
   isAndroid: boolean = false;
@@ -42,6 +49,13 @@ export class Tab1Page {
 
   dismiss() {
     this.modalController.dismiss();
+  }
+
+  ionViewWillEnter() {
+    this.category = "0";
+    this.SwipedTabsSlider.length().then(l => {  //no sería necesario aquí, solo en ngOnInit
+      this.ntabs = l;
+    });
   }
 
   //Analizar el ciclo de vida de los componentes: justo cuando se hace activa
@@ -73,6 +87,8 @@ export class Tab1Page {
             //no loading
             this.myloading.dismiss();
           });
+
+        this.SwipedTabsIndicator = document.getElementById("indicator");
 
       });
 
@@ -171,23 +187,6 @@ export class Tab1Page {
 
   }
 
-  /*async anadirPuntos(id: any, nombre: any, p1: any, p2: any, p3: any) {
-    const modal = await this.modalController.create({
-      component: PuntosParticipantePage,
-      componentProps: { id, nombre, p1, p2, p3 }
-    });
-
-    modal.onDidDismiss()
-      .then(() => {//se ejecuta cuando tiene exito
-
-        this.ionViewDidEnter();
-
-      });
-
-    await modal.present();
-
-  }*/
-
   borrarParticipante(id) {
 
     this.serv.borraParticipante(id);
@@ -239,6 +238,38 @@ export class Tab1Page {
         return (item.sistema.toLowerCase().indexOf(val.toLowerCase()) > -1);
       })
     }
+  }
+
+  /* Actualiza la categoría que esté en ese momento activa*/
+  updateCat(cat: Promise<any>) {
+    cat.then(dat => {
+      this.category = dat;
+      this.category = +this.category; //to int;
+      /*if (this.category == 1) {
+        if (this.cloud.isInfinityScrollEnabled()) {
+          this.ionInfiniteScroll.disabled = false;
+        } else {
+          this.ionInfiniteScroll.disabled = true;
+        }
+      } else {
+        this.ionInfiniteScroll.disabled = false;
+      }*/
+    });
+  }
+  /* El método que permite actualizar el indicado cuando se cambia de slide*/
+  updateIndicatorPosition() {
+    this.SwipedTabsSlider.getActiveIndex().then(i => {
+      if (this.ntabs > i) {  // this condition is to avoid passing to incorrect index
+        this.SwipedTabsIndicator.style.webkitTransform = 'translate3d(' + (i * 100) + '%,0,0)';
+      }
+    });
+  }
+  /* El método que anima la "rayita" mientras nos estamos deslizando por el slide*/
+  animateIndicator(e) {
+    //console.log(e.target.swiper.progress);
+    if (this.SwipedTabsIndicator)
+      this.SwipedTabsIndicator.style.webkitTransform = 'translate3d(' +
+        ((e.target.swiper.progress * (this.ntabs - 1)) * 100) + '%,0,0)';
   }
 
 }

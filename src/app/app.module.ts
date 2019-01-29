@@ -27,6 +27,7 @@ export function setTranslateLoader(http: any) {
   imports: [
     BrowserModule, 
     IonicModule.forRoot(), 
+    IonicStorageModule.forRoot(),
     AppRoutingModule,
     FormsModule,
     BrowserModule,

@@ -6,6 +6,7 @@ import { ServiciosService } from 'src/app/servicios/servicios.service';
 import { environment } from 'src/environments/environment';
 import { PuntosParticipantePage } from '../puntos-participante/puntos-participante.page';
 import { ServPuntosService } from 'src/app/servicios/serv-puntos.service';
+import { ServCategoriaService } from 'src/app/servicios/serv-categoria.service';
 
 @Component({
   selector: 'app-modal-participante',
@@ -21,9 +22,12 @@ export class ModalParticipantePage implements OnInit {
   timeout;
   listPartic = [];
   listPanelPartic = [];
+  listCateg = [];
+  listPanelCat = [];
 
   constructor(public modalcontroller: ModalController,
     private formBuilder: FormBuilder,
+    private servCat: ServCategoriaService,
     private serv: ServiciosService,
     public servPuntos: ServPuntosService,
     public modalController: ModalController,
@@ -38,6 +42,7 @@ export class ModalParticipantePage implements OnInit {
       apellido: [this.navparams.get('apellido')],
       edad: [this.navparams.get('edad')],
       grado: [this.navparams.get('grado')],
+      categoria: [this.navparams.get('categoria')]
 
     });
   }
@@ -61,6 +66,7 @@ export class ModalParticipantePage implements OnInit {
       apellido: this.registro.get("apellido").value,//se recoge el valor de descripcion
       edad: this.registro.get("edad").value,
       grado: this.registro.get("grado").value,
+      categoria: this.registro.get("categoria").value
     };
 
     //console.log("Id insertado", this.id)
@@ -95,23 +101,25 @@ export class ModalParticipantePage implements OnInit {
     return await this.myloading.present();
   }
 
-  // ionViewDidEnter() {//es igual que el ngInit
-  //   this.show("Cargando");//texto de el loading
-  //   this.serv.leeParticipantes()
-  //     .subscribe((querySnapshot) => {
-  //       this.listPartic = [];
-  //       //this.delete();
-  //       querySnapshot.forEach((doc) => {
-  //         // doc.data() is never undefined for query doc snapshots
-  //         // console.log(doc.id, " => ", doc.data());
-  //         this.listPartic.push({ id: doc.id, ...doc.data() });
-  //       });
-  //       //console.log(this.listPuntos);
-  //       this.listPanelPartic = this.listPartic;
-  //       this.myloading.dismiss();
-  //     });
+  ionViewDidEnter() {//es igual que el ngInit
+    this.show("Cargando");//texto de el loading
+    //categoria
+    this.servCat.leeCategorias()
+      .subscribe((querySnapshot) => {
+        this.listCateg = [];
+        //this.delete();
+        querySnapshot.forEach((doc) => {
+          // doc.data() is never undefined for query doc snapshots
+          //console.log(doc.id, " => ", doc.data());
+          this.listCateg.push({ id: doc.id, ...doc.data() });
+        });
+        //console.log(this.listPartic);
+        this.listPanelCat = this.listCateg;
+        //no loading
+        this.myloading.dismiss();
+      });
 
-  // }
+  }
 
   // //Esta función es llamada por el componente Refresher de IONIC v4
   // doRefresh(refresher) {
@@ -133,36 +141,38 @@ export class ModalParticipantePage implements OnInit {
 
   // }
 
-  // //muestra el loading al iniciar
-  // async show(msg) {
-  //   this.myloading = await this.loadingController.create({
-  //     message: msg,
-  //     spinner: "bubbles",
-  //     //animated: true,
-  //     leaveAnimation: null
-  //   });
-  //   this.timeout = setTimeout(() => {
-  //     this.myloading.dismiss();
-  //     //this.toast.show(this.translate.instant("errorloading"));
-  //   }, environment.tiempoMaxCarga);
-  //   await this.myloading.present();
-  // }
-  // hide() {
-  //   if (this.myloading) {
-  //     clearTimeout(this.timeout);
-  //     this.myloading.dismiss();
-  //   }
-  // }
+  //muestra el loading al iniciar
+  async show(msg) {
+    this.myloading = await this.loadingController.create({
+      message: msg,
+      spinner: "bubbles",
+      //animated: true,
+      leaveAnimation: null
+    });
+    this.timeout = setTimeout(() => {
+      this.myloading.dismiss();
+      //this.toast.show(this.translate.instant("errorloading"));
+    }, environment.tiempoMaxCarga);
+    await this.myloading.present();
+  }
+  hide() {
+    if (this.myloading) {
+      clearTimeout(this.timeout);
+      this.myloading.dismiss();
+    }
+  }
 
   async anadirPuntos() {
-    console.log( this.registro.value.nombre);
-     const modal = await this.modalController.create({
+    console.log(this.registro.value.nombre);
+    const modal = await this.modalController.create({
       component: PuntosParticipantePage,
-       componentProps: { 'nombre': this.registro.value.nombre, 'apellido': this.registro.value.apellido,
-       'p1': this.registro.value.p1, 'p2': this.registro.value.p2, 'p3': this.registro.value.p3,}
-     });
+      componentProps: {
+        'nombre': this.registro.value.nombre, 'apellido': this.registro.value.apellido,
+        'p1': this.registro.value.p1, 'p2': this.registro.value.p2, 'p3': this.registro.value.p3,
+      }
+    });
 
-   return await modal.present();
+    return await modal.present();
 
   }
 
