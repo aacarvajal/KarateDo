@@ -5,7 +5,7 @@
     </ion-buttons>
     <ion-row>
       <ion-col float-left>
-        <ion-title float-left>Lista</ion-title>
+        <ion-title float-left>{{"list" | translate}}</ion-title>
       </ion-col>
       <ion-col>
         <ion-searchbar #searchBar id="searchBar" showCancelButton cancelButtonText="Custom Cancel" (ionInput)="getFilteredParticipante($event)"
@@ -23,66 +23,21 @@
       value="Categorias">
       {{"category" | translate}}
     </ion-segment-button>
-    <!-- <ion-segment-button layout="icon-start" value="0" style="text-size-adjust:5px; --padding-start:0px;" value="Puntos">
-        Puntos
-      </ion-segment-button> -->
 
   </ion-segment>
   <div id='indicator' class="SwipedTabs-indicatorSegment" [ngStyle]=" 
     {'width.%': (100/this.tabs.length)}" style="margin-top:2px"></div>
 </ion-header>
 
-<!-- <ion-content>
+<ion-content>
+
   <ion-refresher (ionRefresh)="doRefresh($event)">
-    refrescar
-    se ejecuta cuando se ejecuta ionRefresh
+    <!-- refrescar -->
+    <!-- se ejecuta cuando se ejecuta ionRefresh -->
     <ion-refresher-content pullingIcon="arrow-dropdown" showCancelButton cancelButtonText="Cancelar" pullingText="Arrastra para refrescar"
       refreshingSpinner="crescent" refreshingText="Cargando datos">
     </ion-refresher-content>
   </ion-refresher>
-
-  <div [ngSwitch]="karate">
-
-    <ion-list #dynamicList id="dynamicList" *ngSwitchCase="'Participantes'">
-      <ion-item *ngFor="let item of listPanelPartic;let i = index" (click)="editarParticipante(item.id,item.nombre,item.apellido,item.edad,item.grado)">
-        <label>
-          <p>{{item.nombre}} {{item.apellido}}</p>
-          <p>{{item.grado}}{{item.p1}}</p>
-        </label>
-      </ion-item>
-    </ion-list>
-
-    <ion-list #dynamicList id="dynamicList" *ngSwitchCase="'Categorias'">
-      <ion-item *ngFor="let item of listPanelCat;let i = index" (click)="editarCategoria(item.id,item.descripcion,item.sistema)">
-        <label>
-          <p>{{item.descripcion}}</p>
-          <p>{{item.sistema}}</p>
-        </label>
-      </ion-item>
-    </ion-list>
-
-    <ion-list #dynamicList id="dynamicList" *ngSwitchCase="'Puntos'">
-        <ion-item *ngFor="let item of listPanelPartic;let i = index" (click)="anadirPuntos(item.id,item.nombre,item.p1)">
-          <label>
-            <p>{{item.nombre}} {{item.apellido}}</p>
-            <p>Puntos: {{item.p1}}, {{item.p2}}, {{item.p3}}</p>
-          </label>
-        </ion-item>
-      </ion-list>
-
-  </div>
-
-</ion-content> -->
-
-<ion-content>
-
-    <ion-refresher (ionRefresh)="doRefresh($event)">
-        <!-- refrescar -->
-        <!-- se ejecuta cuando se ejecuta ionRefresh -->
-        <ion-refresher-content pullingIcon="arrow-dropdown" showCancelButton cancelButtonText="Cancelar" pullingText="Arrastra para refrescar"
-          refreshingSpinner="crescent" refreshingText="Cargando datos">
-        </ion-refresher-content>
-      </ion-refresher>
 
   <ion-slides #slides (ionSlideTransitionStart)="updateIndicatorPosition();updateCat(slides.getActiveIndex())"
     (ionSlideWillChange)="updateIndicatorPosition()" (ionSlideDidChange)="updateIndicatorPosition()" #SwipedTabsSlider
@@ -90,7 +45,7 @@
     <ion-slide>
       <ion-content class="fixed-scroll">
         <ion-list #dynamicList id="dynamicList">
-          <ion-item *ngFor="let item of listPanelPartic;let i = index" (click)="editarParticipante(item.id,item.nombre,item.apellido,item.edad,item.grado)">
+          <ion-item *ngFor="let item of listPanelPartic;let i = index" (click)="editarParticipante(item.id,item.nombre,item.apellido,item.edad,item.grado,item.categoria)">
             <label>
               <p>{{item.nombre}} {{item.apellido}}</p>
               <p>{{item.grado}}{{item.p1}}</p>

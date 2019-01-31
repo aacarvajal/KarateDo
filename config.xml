@@ -85,5 +85,6 @@
     <allow-navigation href="http://192.168.195.2:8101" sessionid="56fb7427" />
     <plugin name="cordova-plugin-vibration" spec="3.1.0" />
     <plugin name="cordova-plugin-nativestorage" spec="2.3.2" />
+    <plugin name="cordova-plugin-flashlight" spec="3.2.0" />
     <engine name="android" spec="7.1.4" />
 </widget>

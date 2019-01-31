@@ -61,6 +61,7 @@ export class Tab1Page {
   //Analizar el ciclo de vida de los componentes: justo cuando se hace activa
   ionViewDidEnter() {//es igual que el ngInit
     this.show("Cargando");//texto de el loading
+    this.SwipedTabsIndicator = document.getElementById("indicator");
     this.serv.leeParticipantes()
       .subscribe((querySnapshot) => {
         this.listPartic = [];
@@ -88,7 +89,7 @@ export class Tab1Page {
             this.myloading.dismiss();
           });
 
-        this.SwipedTabsIndicator = document.getElementById("indicator");
+        //this.SwipedTabsIndicator = document.getElementById("indicator");
 
       });
 
@@ -150,11 +151,12 @@ export class Tab1Page {
     }
   }
 
-  //edita una Participante ya creada
-  async editarParticipante(id: any, nombre: any, apellido: any, edad: any, grado: any, p1: any) {
+  //edita un Participante ya creado
+  //manda los datos que se mostraran en la pagina
+  async editarParticipante(id: any, nombre: any, apellido: any, edad: any, grado: any, categoria: any ) {
     const modal = await this.modalController.create({
       component: ModalParticipantePage,
-      componentProps: { id, nombre, apellido, edad, grado, p1 }
+      componentProps: { id, nombre, apellido, edad, grado, categoria }
     });
 
     //actualiza el tab1 que mostrara la Participante modificada
@@ -169,6 +171,7 @@ export class Tab1Page {
 
   }
 
+  //muestra los datos que se mostraran en la pagina.
   async editarCategoria(id: any, descripcion: any, sistema: any) {
     const modal = await this.modalController.create({
       component: ModalCategoriaPage,

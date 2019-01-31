@@ -12,12 +12,13 @@
     "score": "Score",
     "add score": "Add Score",
     "changeLang": "En Español",
-    "changeSkin": "Night Mode",
+    "changeSkin": "Change skin",
     "name": "Name",
     "surname": "Surname",
     "age": "Age",
     "rank": "Rank",
     "safe": "Safe",
     "description": "Description",
-    "system": "Score System"
+    "system": "Score System",
+    "flash": "Flashlight"
 }

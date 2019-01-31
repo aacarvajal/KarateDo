@@ -9,6 +9,7 @@ import { environment } from 'src/environments/environment';
 import { TranslateService } from '@ngx-translate/core';
 import { Vibration } from '@ionic-native/vibration/ngx';
 import { Router } from '@angular/router';
+import { Flashlight } from '@ionic-native/flashlight/ngx';
 
 @Component({
   selector: 'app-root',
@@ -40,6 +41,7 @@ export class AppComponent {
   ];
 
   langmenu: any;
+  lint: any;
   skinmenu: any;
 
   constructor(private platform: Platform,
@@ -48,6 +50,7 @@ export class AppComponent {
     private router: Router,
     private themeS: ThemeSwitcherService,
     private translate: TranslateService,
+    private flashlight: Flashlight,
     private vibration: Vibration,
     private statusBar: StatusBar,
   ) {
@@ -136,6 +139,18 @@ export class AppComponent {
     console.log("vibra");
     this.vibration.vibrate([5000, 1500, 5000]);
 
+  }
+
+  linterna(e){
+
+    if (e.detail.checked) {
+      this.flashlight.switchOn();
+    } else {
+      this.flashlight.switchOff();
+    }
+
+    this.vibration.vibrate(500);
+    
   }
 
 }

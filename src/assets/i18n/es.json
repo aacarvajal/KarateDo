@@ -12,12 +12,13 @@
     "score": "Puntuación",
     "add score": "Añadir Puntuación",
     "changeLang": "In English",
-    "changeSkin": "Modo Nocturno",
+    "changeSkin": "Cambiar tema",
     "name": "Nombre",
     "surname": "Apellido",
     "age": "Edad",
     "rank": "Grado",
     "safe": "Guardar",
     "description": "Descripcion",
-    "system": "Sistema de Puntos"
+    "system": "Sistema de Puntos",
+    "flash": "Linterna"
 }

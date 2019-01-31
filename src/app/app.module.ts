@@ -17,6 +17,7 @@ import { TranslateModule, TranslateLoader,TranslatePipe } from '@ngx-translate/c
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { Vibration } from '@ionic-native/vibration/ngx';
+import { Flashlight } from '@ionic-native/flashlight/ngx';
 export function setTranslateLoader(http: any) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
@@ -48,7 +49,8 @@ export function setTranslateLoader(http: any) {
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    Vibration
+    Vibration,
+    Flashlight
   ],
   bootstrap: [AppComponent]
 })

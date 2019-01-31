@@ -38,13 +38,14 @@ export class PuntosParticipantePage implements OnInit {
 
     this.navparams.get('id');
 
+    //recupera los datos
     this.puntos = this.formBuilder.group({
 
       nombre: [this.navparams.get('nombre')],
       apellido: [this.navparams.get('apellido')],
       p1: [this.navparams.get('p1')],
       p2: [this.navparams.get('p2')],
-      p3: [this.navparams.get('p3')],
+      p3: [this.navparams.get('p3')]
 
     });
 
