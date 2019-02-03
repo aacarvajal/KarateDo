@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { LoadingController, AlertController, ModalController, Platform, IonSlides } from '@ionic/angular';
+import { LoadingController, AlertController, ModalController, Platform, IonSlides, ToastController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { ServiciosService } from '../servicios/servicios.service';
 import { ServCategoriaService } from '../servicios/serv-categoria.service';
@@ -18,7 +18,6 @@ export class Tab1Page {
 
   @ViewChild('dynamicList') dynamicList;
   @ViewChild('SwipedTabsSlider') SwipedTabsSlider: IonSlides;
-  //@ViewChild('infiniteScroll') ionInfiniteScroll: IonInfiniteScroll;
 
   SwipedTabsIndicator: any = null;
   tabs = ["selectTab(0)", "selectTab(1)"];
@@ -38,6 +37,7 @@ export class Tab1Page {
     public servCat: ServCategoriaService,
     public loadingController: LoadingController,
     public router: Router,
+    private toastController: ToastController,
     public alertController: AlertController,
     public modalController: ModalController,
     public platform: Platform) {
@@ -126,6 +126,8 @@ export class Tab1Page {
             refresher.target.complete();//para que se cierre el refresh
           });
 
+          this.presentToast();
+
       });
 
   }
@@ -152,7 +154,7 @@ export class Tab1Page {
   }
 
   //edita un Participante ya creado
-  //manda los datos que se mostraran en la pagina
+  //manda los datos que deben aparecer en la pagina.
   async editarParticipante(id: any, nombre: any, apellido: any, edad: any, grado: any, categoria: any ) {
     const modal = await this.modalController.create({
       component: ModalParticipantePage,
@@ -171,7 +173,7 @@ export class Tab1Page {
 
   }
 
-  //muestra los datos que se mostraran en la pagina.
+  //manda los datos que deben aparecer en la pagina.
   async editarCategoria(id: any, descripcion: any, sistema: any) {
     const modal = await this.modalController.create({
       component: ModalCategoriaPage,
@@ -189,19 +191,6 @@ export class Tab1Page {
     await modal.present();
 
   }
-
-  borrarParticipante(id) {
-
-    this.serv.borraParticipante(id);
-
-  }
-
-  borrarCategoria(id) {
-
-    this.servCat.borraCategoria(id);
-
-  }
-
 
   //inicializa el array de filtrar
   initializeItems(): void {
@@ -273,6 +262,14 @@ export class Tab1Page {
     if (this.SwipedTabsIndicator)
       this.SwipedTabsIndicator.style.webkitTransform = 'translate3d(' +
         ((e.target.swiper.progress * (this.ntabs - 1)) * 100) + '%,0,0)';
+  }
+
+  async presentToast() {
+    const toast = await this.toastController.create({
+      message: 'Los datos se han cargado correctamente',
+      duration: 2000
+    });
+    toast.present();
   }
 
 }

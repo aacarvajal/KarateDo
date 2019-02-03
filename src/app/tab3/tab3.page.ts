@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ServiciosService } from '../servicios/servicios.service';
 import { Router } from '@angular/router';
-import { LoadingController } from '@ionic/angular';
+import { LoadingController, ToastController } from '@ionic/angular';
 import { ServCategoriaService } from '../servicios/serv-categoria.service';
 
 @Component({
@@ -19,6 +19,7 @@ export class Tab3Page {
   constructor(private formBuilder: FormBuilder,//sin el formbuilder no se pueden crear los campos dentro del formulario
     private servC: ServCategoriaService,
     private router: Router,
+    private toastController: ToastController,
     public loadingController: LoadingController) {
     /* Creamos la relación entre el formulario de nueva.page.html y cat; además
    asociamos los validares y valores iniciales */
@@ -37,6 +38,7 @@ export class Tab3Page {
     };
     /* Mostramos el cargando... */
     this.myloading = this.presentLoading();
+    this.presentToast();
     this.servC.agregaCategoria(data)//envia la funcion
       .then((docRef) => {
         //console.log("ID insertado", docRef.id);//ultimo id
@@ -64,6 +66,15 @@ export class Tab3Page {
       message: 'Guardando'
     });
     return await this.myloading.present();
+  }
+
+  /*muestra un mensaje para confirmar que se ha añadido una nueva Categoria*/
+  async presentToast() {
+    const toast = await this.toastController.create({
+      message: 'Categoria añadida',
+      duration: 2000
+    });
+    toast.present();
   }
 
 }

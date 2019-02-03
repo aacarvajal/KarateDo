@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { Validators, FormGroup, FormBuilder } from '@angular/forms';
-import { LoadingController } from '@ionic/angular';
+import { LoadingController, ToastController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { ServiciosService } from '../servicios/servicios.service';
 import { ServCategoriaService } from '../servicios/serv-categoria.service';
 import { environment } from 'src/environments/environment';
+import { NivelGrado } from '../model/nivelGrado';
 
 @Component({
   selector: 'app-tab2',
@@ -12,6 +13,23 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['tab2.page.scss']
 })
 export class Tab2Page {
+
+  grado: NivelGrado[] = [
+
+    { id: 1, grado: "Blanco" },
+    { id: 2, grado: "Blanco-Amarillo" },
+    { id: 3, grado: "Amarillo" },
+    { id: 4, grado: "Amarillo-Naranja" },
+    { id: 5, grado: "Naranja" },
+    { id: 6, grado: "Naranja-Verde" },
+    { id: 7, grado: "Verde" },
+    { id: 8, grado: "Verde-Azul" },
+    { id: 9, grado: "Azul" },
+    { id: 10, grado: "Azul-Marron" },
+    { id: 11, grado: "Marron" },
+    { id: 12, grado: "Negro" }
+
+  ];
 
   listCateg = [];
   listPanelCat = [];
@@ -23,6 +41,7 @@ export class Tab2Page {
   constructor(private formBuilder: FormBuilder,//sin el formbuilder no se pueden crear los campos dentro del formulario
     private serv: ServiciosService,
     private servCat: ServCategoriaService,
+    private toastController: ToastController,
     private router: Router,
     public loadingController: LoadingController) {
     /* Creamos la relación entre el formulario de nueva.page.html y reg; además
@@ -49,6 +68,7 @@ export class Tab2Page {
     };
     /* Mostramos el cargando... */
     this.myloading = this.presentLoading();
+    this.presentToast();
     this.serv.agregaParticipante(data)//envia la funcion
       .then((docRef) => {
         //console.log("ID insertado", docRef.id);//ultimo id
@@ -79,6 +99,15 @@ export class Tab2Page {
       message: 'Guardando'
     });
     return await this.myloading.present();
+  }
+
+  /*muestra un mensaje para confirmar que se ha añadido un nuevo participante*/
+  async presentToast() {
+    const toast = await this.toastController.create({
+      message: 'Participante añadido',
+      duration: 2000
+    });
+    toast.present();
   }
 
   ionViewDidEnter() {//es igual que el ngInit

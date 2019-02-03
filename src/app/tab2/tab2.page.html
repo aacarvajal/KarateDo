@@ -28,28 +28,20 @@
       <ion-label>{{"age" | translate}} </ion-label>
       <ion-input type="number" formControlName="edad"></ion-input>
     </ion-item>
-    <ion-item>
+
+    <!-- <ion-item>
       <ion-label>{{"rank" | translate}} </ion-label>
       <ion-input type="text" formControlName="grado"></ion-input>
-    </ion-item>
+    </ion-item> -->
+
     <ion-list>
-      <!-- <ion-item>
+
+      <ion-item>
         <ion-label>{{"rank" | translate}}</ion-label>
-        <ion-select formControlName="grado" value="grado" okText="Aceptar" cancelText="Cancelar">
-          <ion-select-option value="Blanco">Blanco</ion-select-option>
-          <ion-select-option value="Blanco-Amarillo">Blanco-Amarillo</ion-select-option>
-          <ion-select-option value="Amarillo">Amarillo</ion-select-option>
-          <ion-select-option value="Amarillo-Naranja">Amarillo-Naranja</ion-select-option>
-          <ion-select-option value="Naranja">Naranja</ion-select-option>
-          <ion-select-option value="Naranja-Verde">Naranja-Verde</ion-select-option>
-          <ion-select-option value="Verde">Verde</ion-select-option>
-          <ion-select-option value="Verde-Azul">Verde-Azul</ion-select-option>
-          <ion-select-option value="Verde">Azul</ion-select-option>
-          <ion-select-option value="Azul-Marron">Azul-Marron</ion-select-option>
-          <ion-select-option value="Verde">Marron</ion-select-option>
-          <ion-select-option value="Negro">Negro</ion-select-option>
+        <ion-select placeholder="Elige una opcion" formControlName="grado">
+          <ion-select-option *ngFor="let item of grado;let i = index" value="{{item.grado}}">{{item.grado}}</ion-select-option>
         </ion-select>
-      </ion-item> -->
+      </ion-item>
 
       <ion-item>
         <ion-label>{{"categories" | translate}}</ion-label>
@@ -59,6 +51,7 @@
       </ion-item>
 
     </ion-list>
+
     <ion-button type="submit" [disabled]="!reg.valid">{{"safe" | translate}} </ion-button>
   </form>
 </ion-content>
