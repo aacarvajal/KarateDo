@@ -1,6 +1,6 @@
 export class NivelGrado {
 
-    id: number;
-    grado: string;
+    id?: number;
+    grado?: string;
 
 }

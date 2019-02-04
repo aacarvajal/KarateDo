@@ -7,6 +7,7 @@ import { environment } from 'src/environments/environment';
 import { PuntosParticipantePage } from '../puntos-participante/puntos-participante.page';
 import { ServPuntosService } from 'src/app/servicios/serv-puntos.service';
 import { ServCategoriaService } from 'src/app/servicios/serv-categoria.service';
+import { NivelGrado } from '../../model/nivelGrado';
 
 @Component({
   selector: 'app-modal-participante',
@@ -14,6 +15,23 @@ import { ServCategoriaService } from 'src/app/servicios/serv-categoria.service';
   styleUrls: ['./modal-participante.page.scss'],
 })
 export class ModalParticipantePage implements OnInit {
+
+  grados: NivelGrado[] = [
+
+    { id: 1, grado: "Blanco" },
+    { id: 2, grado: "Blanco-Amarillo" },
+    { id: 3, grado: "Amarillo" },
+    { id: 4, grado: "Amarillo-Naranja" },
+    { id: 5, grado: "Naranja" },
+    { id: 6, grado: "Naranja-Verde" },
+    { id: 7, grado: "Verde" },
+    { id: 8, grado: "Verde-Azul" },
+    { id: 9, grado: "Azul" },
+    { id: 10, grado: "Azul-Marron" },
+    { id: 11, grado: "Marron" },
+    { id: 12, grado: "Negro" }
+
+  ];
 
   //estas variables se recuperaran de tab1 para que se pueda actualizar la nota
   id: any;
