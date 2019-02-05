@@ -16,6 +16,8 @@ import { NivelGrado } from '../../model/nivelGrado';
 })
 export class ModalParticipantePage implements OnInit {
 
+  //se crea un array que contendra todas las opciones
+  //de una lista desplegable del modelo NivelGrado
   grados: NivelGrado[] = [
 
     { id: 1, grado: "Blanco" },
@@ -33,7 +35,7 @@ export class ModalParticipantePage implements OnInit {
 
   ];
 
-  //estas variables se recuperaran de tab1 para que se pueda actualizar la nota
+  //estas variables se recuperaran de tab1 para que se pueda actualizar el participante
   id: any;
   public registro: FormGroup;
   myloading: any;//muestra un cartel de cargando
@@ -54,6 +56,8 @@ export class ModalParticipantePage implements OnInit {
 
     //this.navparams.get('id');
 
+    //recupera todos los datos de la BBDD para despues insertarlos
+    //en el formulario, cada uno en su campo correspondiente
     this.registro = this.formBuilder.group({
 
       nombre: [this.navparams.get('nombre'), Validators.required],
@@ -76,22 +80,23 @@ export class ModalParticipantePage implements OnInit {
   }
 
   //se ejecuta en el onsubmit
-
+  //recoge todos los datos para despues sobreescribir lo que ya hay en la BBDD
   actualizarFormulario() {
 
     let data = {
-      nombre: this.registro.get("nombre").value,//se recoge el valor del titulo
-      apellido: this.registro.get("apellido").value,//se recoge el valor de descripcion
-      edad: this.registro.get("edad").value,
-      grado: this.registro.get("grado").value,
-      categoria: this.registro.get("categoria").value
+      nombre: this.registro.get("nombre").value,//se recoge el valor del nombre
+      apellido: this.registro.get("apellido").value,//se recoge el valor de apellido
+      edad: this.registro.get("edad").value,//se recoge el valor de edad
+      grado: this.registro.get("grado").value,//se recoge el valor de grado
+      categoria: this.registro.get("categoria").value//se recoge el valor de categoria
     };
 
     //console.log("Id insertado", this.id)
     //se muestra el cartel de cargando
     this.myloading = this.presentLoading();
 
-    //se llama al metodo de actualizar del servicio ToDo, al que se le pasaran los datos que se van a modificar
+    //se llama al metodo de actualizar del servicio serv-categoria, 
+    //al que se le pasaran los datos que se van a modificar
     this.serv.actualizaParticipante(this.id, data)
 
       .then((docRef) => {
@@ -111,7 +116,7 @@ export class ModalParticipantePage implements OnInit {
       });
   }
 
-  //ejercuta un cartel de guardando
+  //ejercuta un cartel asincronico de guardando
   async presentLoading() {
     this.myloading = await this.loadingController.create({
       message: 'Guardando'
@@ -119,6 +124,7 @@ export class ModalParticipantePage implements OnInit {
     return await this.myloading.present();
   }
 
+  //este metodo se encarga de mostrar las categorias guardadas en la BBDD
   ionViewDidEnter() {//es igual que el ngInit
     this.show("Cargando");//texto de el loading
     //categoria
@@ -160,6 +166,8 @@ export class ModalParticipantePage implements OnInit {
     }
   }
 
+  //este metodo se encarga de recoger el valor tanto el nombre como el apellido del participante
+  //para despues mostrarlo en la siguiente ventana donde se añadiran puntos a ese participante.
   async anadirPuntos() {
     console.log(this.registro.value.nombre);
     const modal = await this.modalController.create({

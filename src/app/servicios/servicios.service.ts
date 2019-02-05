@@ -14,8 +14,6 @@ export class ServiciosService {
 
     this.myCollection =
       fireStore.collection<any>(environment.firebaseconfig.regisColeccion);
-    /*this.myCollection =
-      fireStore.collection<any>(environment.firebaseconfig.catColeccion);*/
 
   }
 

@@ -15,16 +15,20 @@
   top: -2px;
   background-color: var(--ion-color-tertiary) !important;
 }
+
 .button-native{
   padding:0px !important;
 }
+
 /* para que el slide ocupe toda la pantalla */
 ion-slide.swiper-slide {
   display:block;
 }
+
 .slides{
   height: 100%;
 }
+
 .fixed-scroll{
   height:100%!important;
   overflow-y:scroll;
@@ -33,10 +37,12 @@ ion-slide.swiper-slide {
       display: none !important;
   }
 }
+
 ::-webkit-scrollbar,
 *::-webkit-scrollbar {
 display: none;
 }
+
 ion-card{
   margin:0px!important;
   border-radius: 0px;

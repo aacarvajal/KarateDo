@@ -12,10 +12,10 @@ import { ServCategoriaService } from 'src/app/servicios/serv-categoria.service';
 })
 export class ModalCategoriaPage implements OnInit {
 
-  //estas variables se recuperaran de tab1 para que se pueda actualizar la nota
+  //estas variables se recuperaran de tab1 para que se pueda actualizar la categoria
   id: any;
-  descripcion: any;
-  sistema: any;
+  //descripcion: any;
+  //sistema: any;
   public Categoria: FormGroup;
   myloading: any;//muestra un cartel de cargando
 
@@ -28,6 +28,7 @@ export class ModalCategoriaPage implements OnInit {
 
     this.navparams.get('id');
 
+    //rellena el formulario con los datos recogidos de la BBDD
     this.Categoria = this.formBuilder.group({
 
       descripcion: [this.navparams.get('descripcion'), Validators.required],
@@ -79,7 +80,7 @@ export class ModalCategoriaPage implements OnInit {
       });
   }
 
-  //ejercuta un cartel de guardando
+  //ejercuta un cartel asincronico de guardando
   async presentLoading() {
     this.myloading = await this.loadingController.create({
       message: 'Guardando'

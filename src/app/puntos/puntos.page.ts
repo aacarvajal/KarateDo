@@ -21,25 +21,18 @@ export class PuntosPage implements OnInit {
   listPanelPartic = [];
 
   constructor(public servPuntos: ServPuntosService,
-    //public serv: ServiciosService,
     private formBuilder: FormBuilder,
     public loadingController: LoadingController,
     public router: Router,
     public alertController: AlertController,
     public modalController: ModalController, ) { 
 
-      //this.initializeItems();
+      
 
     }
 
   ngOnInit() {
   }
-  
-  /*initializeItems(): void {
-
-    this.listPuntos = this.listPanelPuntos;
-
-  }*/
 
   //Analizar el ciclo de vida de los componentes: justo cuando se hace activa
   ionViewDidEnter() {//es igual que el ngInit
@@ -101,7 +94,8 @@ export class PuntosPage implements OnInit {
     }
   }
 
-  async editarPuntos(id: any, nombre: any, apellido: any, p1: any, p2: any, p3: any) {
+  //se guardara el metodo para futuros cambios en el caso de que se añada un editar puntos
+  /*async editarPuntos(id: any, nombre: any, apellido: any, p1: any, p2: any, p3: any) {
     const modal = await this.modalController.create({
       component: PuntosParticipantePage,
       componentProps: { id, nombre, apellido, p1, p2, p3 }
@@ -116,7 +110,7 @@ export class PuntosPage implements OnInit {
 
     await modal.present();
 
-  }
+  }*/
 
 }
 

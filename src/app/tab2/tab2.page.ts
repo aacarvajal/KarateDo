@@ -14,6 +14,8 @@ import { NivelGrado } from '../model/nivelGrado';
 })
 export class Tab2Page {
 
+  //se crea un array que contendra todas las opciones
+  //de una lista desplegable del modelo NivelGrado
   grado: NivelGrado[] = [
 
     { id: 1, grado: "Blanco" },
@@ -44,7 +46,7 @@ export class Tab2Page {
     private toastController: ToastController,
     private router: Router,
     public loadingController: LoadingController) {
-    /* Creamos la relación entre el formulario de nueva.page.html y reg; además
+    /* Creamos la relación entre el formulario de tab2.page.html y reg; además
    asociamos los validares y valores iniciales */
     this.reg = this.formBuilder.group({
       nombre: ['', Validators.required],

@@ -21,6 +21,7 @@ export class Tab1Page {
 
   SwipedTabsIndicator: any = null;
   tabs = ["selectTab(0)", "selectTab(1)"];
+  ntabs = 2;
   listPartic = [];
   listCateg = [];
   listPanelPartic = [];
@@ -28,7 +29,6 @@ export class Tab1Page {
   myloading: any;
   timeout;
   public category: any = "0";
-  ntabs = 2;
 
   karate: string = "participante";
   isAndroid: boolean = false;
@@ -52,7 +52,7 @@ export class Tab1Page {
   }
 
   ionViewWillEnter() {
-    this.category = "0";
+    // this.category = "0";
     this.SwipedTabsSlider.length().then(l => {  //no sería necesario aquí, solo en ngOnInit
       this.ntabs = l;
     });
@@ -126,7 +126,7 @@ export class Tab1Page {
             refresher.target.complete();//para que se cierre el refresh
           });
 
-          this.presentToast();
+        this.presentToast();
 
       });
 
@@ -155,7 +155,7 @@ export class Tab1Page {
 
   //edita un Participante ya creado
   //manda los datos que deben aparecer en la pagina.
-  async editarParticipante(id: any, nombre: any, apellido: any, edad: any, grado: any, categoria: any ) {
+  async editarParticipante(id: any, nombre: any, apellido: any, edad: any, grado: any, categoria: any) {
     const modal = await this.modalController.create({
       component: ModalParticipantePage,
       componentProps: { id, nombre, apellido, edad, grado, categoria }
@@ -173,6 +173,7 @@ export class Tab1Page {
 
   }
 
+  //edita una categoria ya creada
   //manda los datos que deben aparecer en la pagina.
   async editarCategoria(id: any, descripcion: any, sistema: any) {
     const modal = await this.modalController.create({
@@ -192,7 +193,7 @@ export class Tab1Page {
 
   }
 
-  //inicializa el array de filtrar
+  //inicializa el array 
   initializeItems(): void {
 
     this.listPartic = this.listPanelPartic;
@@ -200,6 +201,7 @@ export class Tab1Page {
 
   }
 
+  //este metodo se encarga del filtrado de participantes en el buscador 
   getFilteredParticipante($event) {
     // resetea todos los objetos y pone el array de nuevo con todos los elementos
     this.initializeItems();
@@ -216,6 +218,7 @@ export class Tab1Page {
     }
   }
 
+  //este metodo se encarga del filtrado de participantes en el buscador 
   getFilteredCategoria($event) {
     // resetea todos los objetos y pone el array de nuevo con todos los elementos
     this.initializeItems();
@@ -233,25 +236,19 @@ export class Tab1Page {
   }
 
   /* Actualiza la categoría que esté en ese momento activa*/
+  //los tres metodos siguientes los uso solamente para el slide en el segment
   updateCat(cat: Promise<any>) {
     cat.then(dat => {
+      console.log(dat);
       this.category = dat;
       this.category = +this.category; //to int;
-      /*if (this.category == 1) {
-        if (this.cloud.isInfinityScrollEnabled()) {
-          this.ionInfiniteScroll.disabled = false;
-        } else {
-          this.ionInfiniteScroll.disabled = true;
-        }
-      } else {
-        this.ionInfiniteScroll.disabled = false;
-      }*/
     });
   }
   /* El método que permite actualizar el indicado cuando se cambia de slide*/
   updateIndicatorPosition() {
     this.SwipedTabsSlider.getActiveIndex().then(i => {
       if (this.ntabs > i) {  // this condition is to avoid passing to incorrect index
+       
         this.SwipedTabsIndicator.style.webkitTransform = 'translate3d(' + (i * 100) + '%,0,0)';
       }
     });
@@ -264,6 +261,7 @@ export class Tab1Page {
         ((e.target.swiper.progress * (this.ntabs - 1)) * 100) + '%,0,0)';
   }
 
+  //muestra un mensaje al hacer un refresh 
   async presentToast() {
     const toast = await this.toastController.create({
       message: 'Los datos se han cargado correctamente',
