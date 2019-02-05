@@ -1,11 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ModalController, LoadingController, NavParams } from '@ionic/angular';
-import { Router } from '@angular/router';
 import { ServiciosService } from 'src/app/servicios/servicios.service';
 import { environment } from 'src/environments/environment';
 import { PuntosParticipantePage } from '../puntos-participante/puntos-participante.page';
-import { ServPuntosService } from 'src/app/servicios/serv-puntos.service';
 import { ServCategoriaService } from 'src/app/servicios/serv-categoria.service';
 import { NivelGrado } from '../../model/nivelGrado';
 
@@ -49,12 +47,9 @@ export class ModalParticipantePage implements OnInit {
     private formBuilder: FormBuilder,
     private servCat: ServCategoriaService,
     private serv: ServiciosService,
-    public servPuntos: ServPuntosService,
     public modalController: ModalController,
     public loadingController: LoadingController,
     public navparams: NavParams) {
-
-    //this.navparams.get('id');
 
     //recupera todos los datos de la BBDD para despues insertarlos
     //en el formulario, cada uno en su campo correspondiente
@@ -131,7 +126,6 @@ export class ModalParticipantePage implements OnInit {
     this.servCat.leeCategorias()
       .subscribe((querySnapshot) => {
         this.listCateg = [];
-        //this.delete();
         querySnapshot.forEach((doc) => {
           // doc.data() is never undefined for query doc snapshots
           //console.log(doc.id, " => ", doc.data());
@@ -150,7 +144,6 @@ export class ModalParticipantePage implements OnInit {
     this.myloading = await this.loadingController.create({
       message: msg,
       spinner: "bubbles",
-      //animated: true,
       leaveAnimation: null
     });
     this.timeout = setTimeout(() => {
@@ -173,8 +166,7 @@ export class ModalParticipantePage implements OnInit {
     const modal = await this.modalController.create({
       component: PuntosParticipantePage,
       componentProps: {
-        'nombre': this.registro.value.nombre, 'apellido': this.registro.value.apellido/*,
-        'p1': this.registro.value.p1, 'p2': this.registro.value.p2, 'p3': this.registro.value.p3*/
+        'nombre': this.registro.value.nombre, 'apellido': this.registro.value.apellido
       }
     });
 

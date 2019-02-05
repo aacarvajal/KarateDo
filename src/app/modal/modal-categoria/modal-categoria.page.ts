@@ -14,15 +14,12 @@ export class ModalCategoriaPage implements OnInit {
 
   //estas variables se recuperaran de tab1 para que se pueda actualizar la categoria
   id: any;
-  //descripcion: any;
-  //sistema: any;
   public Categoria: FormGroup;
   myloading: any;//muestra un cartel de cargando
 
   constructor(public modalcontroller: ModalController,
     private formBuilder: FormBuilder,
     private servCat: ServCategoriaService,
-    private router: Router,
     public loadingController: LoadingController,
     public navparams: NavParams) {
 
@@ -48,7 +45,6 @@ export class ModalCategoriaPage implements OnInit {
   }
 
   //se ejecuta en el onsubmit
-
   actualizarFormulario() {
 
     let data = {

@@ -19,32 +19,25 @@ export class Tab1Page {
   @ViewChild('dynamicList') dynamicList;
   @ViewChild('SwipedTabsSlider') SwipedTabsSlider: IonSlides;
 
+  //slide
   SwipedTabsIndicator: any = null;
   tabs = ["selectTab(0)", "selectTab(1)"];
   ntabs = 2;
+  public category: any = "0";
+
   listPartic = [];
   listCateg = [];
   listPanelPartic = [];
   listPanelCat = [];
   myloading: any;
   timeout;
-  public category: any = "0";
-
-  karate: string = "participante";
-  isAndroid: boolean = false;
 
   constructor(public serv: ServiciosService,
     public servCat: ServCategoriaService,
     public loadingController: LoadingController,
-    public router: Router,
     private toastController: ToastController,
-    public alertController: AlertController,
-    public modalController: ModalController,
-    public platform: Platform) {
-
+    public modalController: ModalController) {
     this.initializeItems();
-    this.isAndroid = platform.is('android');
-
   }
 
   dismiss() {

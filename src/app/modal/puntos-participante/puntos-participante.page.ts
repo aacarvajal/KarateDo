@@ -1,11 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { FormGroup, Validators, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder } from '@angular/forms';
 import { ServPuntosService } from 'src/app/servicios/serv-puntos.service';
-import { LoadingController, NavParams, AlertController, ModalController, Platform } from '@ionic/angular';
+import { LoadingController, NavParams, ModalController, Platform } from '@ionic/angular';
 import { ServiciosService } from 'src/app/servicios/servicios.service';
-import { environment } from 'src/environments/environment';
-import { Router } from '@angular/router';
-import { ModalParticipantePage } from '../modal-participante/modal-participante.page';
 
 @Component({
   selector: 'app-puntos-participante',
@@ -17,8 +14,6 @@ export class PuntosParticipantePage implements OnInit {
 
   private puntos: FormGroup;
   myloading: any;
-  id: any;
-  timeout;
   listPuntos = [];
   listPanelPuntos = [];
   @Input() nombre: any;
@@ -27,9 +22,7 @@ export class PuntosParticipantePage implements OnInit {
   constructor(public serv: ServiciosService,
     public servPuntos: ServPuntosService,
     public loadingController: LoadingController,
-    public router: Router,
     private formBuilder: FormBuilder,
-    public alertController: AlertController,
     public modalController: ModalController,
     public navparams: NavParams,
     public platform: Platform) {

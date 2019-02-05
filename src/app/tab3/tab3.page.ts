@@ -18,7 +18,6 @@ export class Tab3Page {
 
   constructor(private formBuilder: FormBuilder,//sin el formbuilder no se pueden crear los campos dentro del formulario
     private servC: ServCategoriaService,
-    private router: Router,
     private toastController: ToastController,
     public loadingController: LoadingController) {
     /* Creamos la relación entre el formulario de nueva.page.html y cat; además

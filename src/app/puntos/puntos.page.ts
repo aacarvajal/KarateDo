@@ -21,15 +21,7 @@ export class PuntosPage implements OnInit {
   listPanelPartic = [];
 
   constructor(public servPuntos: ServPuntosService,
-    private formBuilder: FormBuilder,
-    public loadingController: LoadingController,
-    public router: Router,
-    public alertController: AlertController,
-    public modalController: ModalController, ) { 
-
-      
-
-    }
+    public loadingController: LoadingController) { }
 
   ngOnInit() {
   }

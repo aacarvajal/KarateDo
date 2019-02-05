@@ -44,7 +44,6 @@ export class Tab2Page {
     private serv: ServiciosService,
     private servCat: ServCategoriaService,
     private toastController: ToastController,
-    private router: Router,
     public loadingController: LoadingController) {
     /* Creamos la relación entre el formulario de tab2.page.html y reg; además
    asociamos los validares y valores iniciales */
@@ -112,6 +111,7 @@ export class Tab2Page {
     toast.present();
   }
 
+  //se encarga de leer las categorias para despues mostrarlas en una lista desplegable.
   ionViewDidEnter() {//es igual que el ngInit
     this.show("Cargando");//texto de el loading
     //categoria
