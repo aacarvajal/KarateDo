@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ServPuntosService } from 'src/app/servicios/serv-puntos.service';
 import { LoadingController, NavParams, ModalController, Platform } from '@ionic/angular';
 import { ServiciosService } from 'src/app/servicios/servicios.service';
@@ -19,6 +19,16 @@ export class PuntosParticipantePage implements OnInit {
   @Input() nombre: any;
   @Input() apellido: any;
 
+  /**
+   * 
+   * @param serv 
+   * @param servPuntos 
+   * @param loadingController 
+   * @param formBuilder 
+   * @param modalController 
+   * @param navparams 
+   * @param platform 
+   */
   constructor(public serv: ServiciosService,
     public servPuntos: ServPuntosService,
     public loadingController: LoadingController,
@@ -36,9 +46,9 @@ export class PuntosParticipantePage implements OnInit {
 
       nombre: [this.navparams.get('nombre')],
       apellido: [this.navparams.get('apellido')],
-      p1: [this.navparams.get('p1')],
-      p2: [this.navparams.get('p2')],
-      p3: [this.navparams.get('p3')]
+      p1: [this.navparams.get('p1'), Validators.required],
+      p2: [this.navparams.get('p2'), Validators.required],
+      p3: [this.navparams.get('p3'), Validators.required]
 
     });
 

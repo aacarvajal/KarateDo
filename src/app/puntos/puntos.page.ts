@@ -20,6 +20,11 @@ export class PuntosPage implements OnInit {
   listPartic = [];
   listPanelPartic = [];
 
+  /**
+   * 
+   * @param servPuntos 
+   * @param loadingController 
+   */
   constructor(public servPuntos: ServPuntosService,
     public loadingController: LoadingController) { }
 
@@ -45,7 +50,11 @@ export class PuntosPage implements OnInit {
 
   }
 
-  //Esta función es llamada por el componente Refresher de IONIC v4
+  /**
+   * 
+   * @param refresher 
+   * Esta función es llamada por el componente Refresher de IONIC v4
+   */
   doRefresh(refresher) {
     this.servPuntos.leePuntos()
       .subscribe(querySnapshot => {
@@ -65,7 +74,11 @@ export class PuntosPage implements OnInit {
 
   }
 
-  //muestra el loading al iniciar
+  /**
+   * 
+   * @param msg 
+   * muestra el loading al iniciar
+   */
   async show(msg) {
     this.myloading = await this.loadingController.create({
       message: msg,

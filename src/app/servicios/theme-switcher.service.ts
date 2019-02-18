@@ -20,6 +20,11 @@ export class ThemeSwitcherService {
   private themes: Theme[] = [];
   private currentTheme: number = 0;
 
+  /**
+   * 
+   * @param domCtrl 
+   * @param document 
+   */
   constructor(private domCtrl: DomController, @Inject(DOCUMENT) private document) {
 
     this.themes = [
@@ -87,6 +92,10 @@ export class ThemeSwitcherService {
 
   }
 
+  /**
+   * 
+   * @param name 
+   */
   setTheme(name): void {
 
     let theme = this.themes.find(theme => theme.name === name);

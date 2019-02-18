@@ -10,6 +10,10 @@ export class AuthenticationService {
 
   props: iProps = {};
 
+  /**
+   * 
+   * @param storage 
+   */
   constructor(private storage: Storage) { 
 
     this.props.lang = environment.idiomaXDefecto;
@@ -21,6 +25,10 @@ export class AuthenticationService {
     return this.props.skin;
   }
 
+  /**
+   * 
+   * @param val 
+   */
   setSkin(val) {
     this.props.skin = val;
     return this.storage.set("props", this.props);
@@ -30,6 +38,10 @@ export class AuthenticationService {
     return this.props.lang;
   }
 
+  /**
+   * 
+   * @param val 
+   */
   setLang(val) {
     this.props.lang = val;
     return this.storage.set("props", this.props);

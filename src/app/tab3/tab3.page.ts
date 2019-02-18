@@ -16,6 +16,13 @@ export class Tab3Page {
   myloading: any; //mejorable con un servicio destinado a estos menesteres...
   //Lo usamos para mostrar un cargando mientras se realiza la operación.
 
+  /**
+   * 
+   * @param formBuilder 
+   * @param servC 
+   * @param toastController 
+   * @param loadingController 
+   */
   constructor(private formBuilder: FormBuilder,//sin el formbuilder no se pueden crear los campos dentro del formulario
     private servC: ServCategoriaService,
     private toastController: ToastController,
@@ -24,7 +31,7 @@ export class Tab3Page {
    asociamos los validares y valores iniciales */
     this.cat = this.formBuilder.group({
       descripcion: ['', Validators.required],
-      sistema: ['']
+      sistema: ['', Validators.required]
     });
   }
   /* Se ejecuta al submit el formulario. Crea un objeto proveniente del formulario (sería

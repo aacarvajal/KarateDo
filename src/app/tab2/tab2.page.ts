@@ -40,6 +40,14 @@ export class Tab2Page {
   myloading: any; //mejorable con un servicio destinado a estos menesteres...
   //Lo usamos para mostrar un cargando mientras se realiza la operación.
 
+  /**
+   * 
+   * @param formBuilder 
+   * @param serv 
+   * @param servCat 
+   * @param toastController 
+   * @param loadingController 
+   */
   constructor(private formBuilder: FormBuilder,//sin el formbuilder no se pueden crear los campos dentro del formulario
     private serv: ServiciosService,
     private servCat: ServCategoriaService,
@@ -49,10 +57,10 @@ export class Tab2Page {
    asociamos los validares y valores iniciales */
     this.reg = this.formBuilder.group({
       nombre: ['', Validators.required],
-      apellido: [''],
-      edad: [''],
-      grado: [''],
-      categoria: ['']
+      apellido: ['', Validators.required],
+      edad: ['', Validators.required],
+      grado: ['', Validators.required],
+      categoria: ['', Validators.required]
     });
   }
 
@@ -94,6 +102,7 @@ export class Tab2Page {
         /* A desarrollar, se aconseja emplear un componente denominado toast */
       });
   }
+
   /* Es un componente de la interfaz IONIC v4 */
   async presentLoading() {
     this.myloading = await this.loadingController.create({
@@ -132,7 +141,12 @@ export class Tab2Page {
 
   }
 
-  //Esta función es llamada por el componente Refresher de IONIC v4
+  /**
+   * 
+   * @param refresher 
+   * 
+   * Esta función es llamada por el componente Refresher de IONIC v4
+   */
   doRefresh(refresher) {
     //categoria
     this.servCat.leeCategorias()
@@ -152,7 +166,12 @@ export class Tab2Page {
 
   }
 
-  //muestra el loading al iniciar
+  /**
+   * 
+   * @param msg 
+   * 
+   * muestra el loading al iniciar
+   */
   async show(msg) {
     this.myloading = await this.loadingController.create({
       message: msg,

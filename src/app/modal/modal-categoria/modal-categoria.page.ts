@@ -17,6 +17,14 @@ export class ModalCategoriaPage implements OnInit {
   public Categoria: FormGroup;
   myloading: any;//muestra un cartel de cargando
 
+  /**
+   * 
+   * @param modalcontroller 
+   * @param formBuilder 
+   * @param servCat 
+   * @param loadingController 
+   * @param navparams 
+   */
   constructor(public modalcontroller: ModalController,
     private formBuilder: FormBuilder,
     private servCat: ServCategoriaService,

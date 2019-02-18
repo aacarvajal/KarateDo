@@ -32,6 +32,14 @@ export class Tab1Page {
   myloading: any;
   timeout;
 
+  /**
+   * 
+   * @param serv 
+   * @param servCat 
+   * @param loadingController 
+   * @param toastController 
+   * @param modalController 
+   */
   constructor(public serv: ServiciosService,
     public servCat: ServCategoriaService,
     public loadingController: LoadingController,
@@ -88,7 +96,11 @@ export class Tab1Page {
 
   }
 
-  //Esta función es llamada por el componente Refresher de IONIC v4
+  /**
+   * 
+   * @param refresher 
+   * Esta función es llamada por el componente Refresher de IONIC v4
+   */
   doRefresh(refresher) {
     this.serv.leeParticipantes()
       .subscribe(querySnapshot => {
@@ -125,7 +137,11 @@ export class Tab1Page {
 
   }
 
-  //muestra el loading al iniciar
+  /**
+   * 
+   * @param msg 
+   * muestra el loading al iniciar
+   */
   async show(msg) {
     this.myloading = await this.loadingController.create({
       message: msg,
@@ -146,8 +162,18 @@ export class Tab1Page {
     }
   }
 
-  //edita un Participante ya creado
-  //manda los datos que deben aparecer en la pagina.
+  /**
+   * 
+   * @param id 
+   * @param nombre 
+   * @param apellido 
+   * @param edad 
+   * @param grado 
+   * @param categoria 
+   * 
+   * edita un Participante ya creado
+   * manda los datos que deben aparecer en la pagina.
+   */
   async editarParticipante(id: any, nombre: any, apellido: any, edad: any, grado: any, categoria: any) {
     const modal = await this.modalController.create({
       component: ModalParticipantePage,
@@ -166,8 +192,15 @@ export class Tab1Page {
 
   }
 
-  //edita una categoria ya creada
-  //manda los datos que deben aparecer en la pagina.
+  /**
+   * 
+   * @param id 
+   * @param descripcion 
+   * @param sistema 
+   * 
+   * edita una categoria ya creada
+   * manda los datos que deben aparecer en la pagina.
+   */
   async editarCategoria(id: any, descripcion: any, sistema: any) {
     const modal = await this.modalController.create({
       component: ModalCategoriaPage,
@@ -194,7 +227,12 @@ export class Tab1Page {
 
   }
 
-  //este metodo se encarga del filtrado de participantes en el buscador 
+  /**
+   * 
+   * @param $event 
+   * 
+   * este metodo se encarga del filtrado de participantes en el buscador 
+   */
   getFilteredParticipante($event) {
     // resetea todos los objetos y pone el array de nuevo con todos los elementos
     this.initializeItems();
@@ -211,7 +249,12 @@ export class Tab1Page {
     }
   }
 
-  //este metodo se encarga del filtrado de participantes en el buscador 
+  /**
+   * 
+   * @param $event 
+   * 
+   * este metodo se encarga del filtrado de participantes en el buscador
+   */
   getFilteredCategoria($event) {
     // resetea todos los objetos y pone el array de nuevo con todos los elementos
     this.initializeItems();
@@ -228,7 +271,12 @@ export class Tab1Page {
     }
   }
 
-  /* Actualiza la categoría que esté en ese momento activa*/
+  /**
+   * 
+   * @param cat 
+   * 
+   * Actualiza la categoría que esté en ese momento activa
+   */
   //los tres metodos siguientes los uso solamente para el slide en el segment
   updateCat(cat: Promise<any>) {
     cat.then(dat => {
@@ -237,6 +285,7 @@ export class Tab1Page {
       this.category = +this.category; //to int;
     });
   }
+
   /* El método que permite actualizar el indicado cuando se cambia de slide*/
   updateIndicatorPosition() {
     this.SwipedTabsSlider.getActiveIndex().then(i => {
@@ -246,7 +295,13 @@ export class Tab1Page {
       }
     });
   }
-  /* El método que anima la "rayita" mientras nos estamos deslizando por el slide*/
+
+  /**
+   * 
+   * @param e 
+   * 
+   * El método que anima la "rayita" mientras nos estamos deslizando por el slide
+   */
   animateIndicator(e) {
     //console.log(e.target.swiper.progress);
     if (this.SwipedTabsIndicator)

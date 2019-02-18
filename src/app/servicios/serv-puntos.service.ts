@@ -9,6 +9,10 @@ export class ServPuntosService {
 
   myCollection: any;
 
+  /**
+   * 
+   * @param fireStore 
+   */
   constructor(private fireStore: AngularFirestore) {
 
     this.myCollection =
@@ -16,6 +20,10 @@ export class ServPuntosService {
 
   }
 
+  /**
+   * 
+   * @param datos 
+   */
   agregaPunto(datos) {
     return this.myCollection.add(datos);
   }
@@ -31,20 +39,36 @@ export class ServPuntosService {
   colección 'todo'
   Devuelve un Observable
   */
+  /**
+   * 
+   * @param id 
+   * Recupera todos los campos de un documento concreto identificado por la clave id de la
+   * colección 'todo'
+   * Devuelve un Observable
+   */
   leePunto(id) {
     return this.myCollection.doc(id).get();
   }
-  /*
-  Actualiza los campos (sobreescribe y añade) determinados por el objeto data en el
-  documento identificado por id de la colección 'todo'
-  Devuelve un Promise
-  */
+
+  /**
+   * 
+   * @param id 
+   * @param data
+   * Actualiza los campos (sobreescribe y añade) determinados por el objeto data en el
+   * documento identificado por id de la colección 'todo'
+   * Devuelve un Promise
+   *  
+   */
   actualizaPunto(id, data) {
 
     return this.myCollection.doc(id).set(data);
 
   }
 
+  /**
+   * 
+   * @param id 
+   */
   borraPunto(id) {
 
     return this.myCollection.doc(id).delete();

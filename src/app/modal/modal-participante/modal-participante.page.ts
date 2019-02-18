@@ -43,6 +43,16 @@ export class ModalParticipantePage implements OnInit {
   listCateg = [];
   listPanelCat = [];
 
+  /**
+   * 
+   * @param modalcontroller 
+   * @param formBuilder 
+   * @param servCat 
+   * @param serv 
+   * @param modalController 
+   * @param loadingController 
+   * @param navparams 
+   */
   constructor(public modalcontroller: ModalController,
     private formBuilder: FormBuilder,
     private servCat: ServCategoriaService,
@@ -139,7 +149,10 @@ export class ModalParticipantePage implements OnInit {
 
   }
 
-  //muestra el loading al iniciar
+  /**
+   * 
+   * @param msg muestra el loading al iniciar
+   */
   async show(msg) {
     this.myloading = await this.loadingController.create({
       message: msg,

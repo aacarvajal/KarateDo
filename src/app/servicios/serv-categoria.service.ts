@@ -9,6 +9,10 @@ export class ServCategoriaService {
 
   myCollection: any;
 
+  /**
+   * 
+   * @param fireStore 
+   */
   constructor(private fireStore: AngularFirestore) {
 
     this.myCollection =
@@ -16,10 +20,12 @@ export class ServCategoriaService {
 
   }
 
-  /*
-    Recibe un objeto y lo guarda como un documento nuevo en la colección 'todo'
-    Devuelve un Promise
-    */
+  /**
+   * 
+   * @param datos 
+   * Recibe un objeto y lo guarda como un documento nuevo en la colección 'todo'
+   * Devuelve un Promise
+   */
   agregaCategoria(datos) {
     return this.myCollection.add(datos);
   }
@@ -30,25 +36,36 @@ export class ServCategoriaService {
   leeCategorias() {
     return this.myCollection.get();
   }
-  /*
-  Recupera todos los campos de un documento concreto identificado por la clave id de la
-  colección 'todo'
-  Devuelve un Observable
+
+ /**
+  * 
+  * @param id 
+  * Recupera todos los campos de un documento concreto identificado por la clave id de la
+  * colección 'todo'
+  * Devuelve un Observable
   */
   leeCategoria(id) {
     return this.myCollection.doc(id).get();
   }
-  /*
-  Actualiza los campos (sobreescribe y añade) determinados por el objeto data en el
-  documento identificado por id de la colección 'todo'
-  Devuelve un Promise
+
+ /**
+  * 
+  * @param id 
+  * @param data 
+  * Actualiza los campos (sobreescribe y añade) determinados por el objeto data en el
+  * documento identificado por id de la colección 'todo'
+  * Devuelve un Promise
   */
   actualizaCategoria(id, data) {
-    
+
     return this.myCollection.doc(id).set(data);
 
   }
 
+  /**
+   * 
+   * @param id 
+   */
   borraCategoria(id) {
 
     return this.myCollection.doc(id).delete();
