@@ -27,21 +27,20 @@ export class ServPuntosService {
   agregaPunto(datos) {
     return this.myCollection.add(datos);
   }
-  /*
-  Recupera todos los documentos (notas) de la colección 'todo'
-  Devuelve un Observable
+
+ /**
+  * @returns
+  * Recupera todos los documentos (puntos) de la colección 'puntos'
+  * Devuelve un Observable
   */
   leePuntos() {
     return this.myCollection.get();
   }
-  /*
-  Recupera todos los campos de un documento concreto identificado por la clave id de la
-  colección 'todo'
-  Devuelve un Observable
-  */
+
   /**
    * 
    * @param id 
+   * @returns 
    * Recupera todos los campos de un documento concreto identificado por la clave id de la
    * colección 'todo'
    * Devuelve un Observable
@@ -54,6 +53,7 @@ export class ServPuntosService {
    * 
    * @param id 
    * @param data
+   * @returns sobrescribe los datos de un doc de un id en concreto
    * Actualiza los campos (sobreescribe y añade) determinados por el objeto data en el
    * documento identificado por id de la colección 'todo'
    * Devuelve un Promise
@@ -68,6 +68,7 @@ export class ServPuntosService {
   /**
    * 
    * @param id 
+   * @returns devuelve el id del elemento de la coleccion que se ha borrado
    */
   borraPunto(id) {
 

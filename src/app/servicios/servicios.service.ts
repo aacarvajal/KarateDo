@@ -24,15 +24,18 @@ export class ServiciosService {
   /**
    * 
    * @param datos 
-   * Recibe un objeto y lo guarda como un documento nuevo en la colección 'todo'
+   * Recibe un objeto y lo guarda como un documento nuevo en la colección 'participante'
+   * @returns
    * Devuelve un Promise
    */
   agregaParticipante(datos) {
     return this.myCollection.add(datos);
   }
-  /*
-  Recupera todos los documentos (notas) de la colección 'todo'
-  Devuelve un Observable
+
+ /**
+  * Recupera participantes los documentos (participante) de la colección 'participante'
+  * @returns
+  * Devuelve un Observable
   */
   leeParticipantes() {
     return this.myCollection.get();
@@ -41,7 +44,9 @@ export class ServiciosService {
   /**
    * 
    * @param id 
-   * Recupera todos los campos de un documento concreto identificado por la clave id de la colección 'todo'
+   * Recupera participantes los campos de un documento concreto 
+   * identificado por la clave id de la colección 'participante'
+   * @returns
    * Devuelve un Observable
    */
   leeParticipante(id) {
@@ -53,7 +58,8 @@ export class ServiciosService {
    * @param id 
    * @param data 
    * Actualiza los campos (sobreescribe y añade) determinados por el 
-   * objeto data en el documento identificado por id de la colección 'todo'
+   * objeto data en el documento identificado por id de la colección 'participante'
+   * @returns
    * Devuelve un Promise
    */
   actualizaParticipante(id, data) {

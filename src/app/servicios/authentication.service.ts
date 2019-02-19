@@ -28,6 +28,8 @@ export class AuthenticationService {
   /**
    * 
    * @param val 
+   * @returns 
+   * devuelve un string que nos dira que skin esta activa
    */
   setSkin(val) {
     this.props.skin = val;
@@ -41,6 +43,8 @@ export class AuthenticationService {
   /**
    * 
    * @param val 
+   * @returns 
+   * nos devolvera un string que nos dira que idioma esta activo
    */
   setLang(val) {
     this.props.lang = val;

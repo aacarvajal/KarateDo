@@ -44,6 +44,19 @@ export class AppComponent {
   lint: any;
   skinmenu: any;
 
+  /**
+   * 
+   * @param platform 
+   * @param splashScreen 
+   * @param authS 
+   * @param router 
+   * @param sensor 
+   * @param themeS 
+   * @param translate 
+   * @param flashlight 
+   * @param vibration 
+   * @param statusBar 
+   */
   constructor(private platform: Platform,
     private splashScreen: SplashScreen,
     private authS: AuthenticationService,
@@ -107,7 +120,10 @@ export class AppComponent {
 
   }
 
-
+/**
+ * 
+ * @param e 
+ */
   changeSkin(e) {
     if (e.detail.checked) {
       this.authS.setSkin("dark");
@@ -121,6 +137,10 @@ export class AppComponent {
 
   }
 
+  /**
+   * 
+   * @param e 
+   */
   changeLang(e) {
     //console.log(e.detail.checked);
     if (e.detail.checked) {
@@ -141,6 +161,10 @@ export class AppComponent {
 
   }
 
+  /**
+   * 
+   * @param e 
+   */
   linterna(e){
 
     if (e.detail.checked) {

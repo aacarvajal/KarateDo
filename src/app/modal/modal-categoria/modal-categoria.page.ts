@@ -84,7 +84,11 @@ export class ModalCategoriaPage implements OnInit {
       });
   }
 
-  //ejercuta un cartel asincronico de guardando
+  //
+  /**
+   * @returns
+   * ejercuta un cartel asincrono de guardando
+   */
   async presentLoading() {
     this.myloading = await this.loadingController.create({
       message: 'Guardando'

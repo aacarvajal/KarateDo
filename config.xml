@@ -87,4 +87,5 @@
     <plugin name="cordova-plugin-nativestorage" spec="2.3.2" />
     <plugin name="cordova-plugin-flashlight" spec="3.2.0" />
     <engine name="android" spec="7.1.4" />
+    <plugin name="cordova-plugin-sensors" spec="https://github.com/fabiorogeriosj/cordova-plugin-sensors.git" />
 </widget>
