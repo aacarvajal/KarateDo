@@ -20,7 +20,7 @@ export class PuntosParticipantePage implements OnInit {
   @Input() apellido: any;
 
   /**
-   * 
+   * se crea un objeto por cada clase necesaria
    * @param serv 
    * @param servPuntos 
    * @param loadingController 
@@ -97,7 +97,7 @@ export class PuntosParticipantePage implements OnInit {
   }
 
   /**
-   * @returns
+   * @returns devuelve un modal
    * 
    * ejercuta un cartel asincrono de guardando
    */

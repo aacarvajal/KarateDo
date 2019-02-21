@@ -13,6 +13,7 @@ export class AuthenticationService {
   /**
    * 
    * @param storage 
+   * 
    */
   constructor(private storage: Storage) { 
 
@@ -21,6 +22,9 @@ export class AuthenticationService {
 
   }
 
+  /**
+   * @returns devuelve el valor pasado
+   */
   getSkin() {
     return this.props.skin;
   }
@@ -28,14 +32,19 @@ export class AuthenticationService {
   /**
    * 
    * @param val 
-   * @returns 
-   * devuelve un string que nos dira que skin esta activa
+   * @returns devuelve un string que nos dira que skin esta activa
+   * 
    */
   setSkin(val) {
     this.props.skin = val;
     return this.storage.set("props", this.props);
   }
 
+  /**
+   * 
+   * @returns devuelve el valor pasado
+   * 
+   */
   getLang() {
     return this.props.lang;
   }
@@ -43,8 +52,8 @@ export class AuthenticationService {
   /**
    * 
    * @param val 
-   * @returns 
-   * nos devolvera un string que nos dira que idioma esta activo
+   * @returns nos devolvera un string que nos dira que idioma esta activo
+   * 
    */
   setLang(val) {
     this.props.lang = val;

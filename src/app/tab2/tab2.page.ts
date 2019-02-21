@@ -47,6 +47,7 @@ export class Tab2Page {
    * @param servCat 
    * @param toastController 
    * @param loadingController 
+   * 
    */
   constructor(private formBuilder: FormBuilder,//sin el formbuilder no se pueden crear los campos dentro del formulario
     private serv: ServiciosService,
@@ -103,7 +104,12 @@ export class Tab2Page {
       });
   }
 
-  /* Es un componente de la interfaz IONIC v4 */
+  /**
+   * 
+   * @returns devuelve un modal
+   * Es un componente de la interfaz IONIC v4
+   * 
+   */
   async presentLoading() {
     this.myloading = await this.loadingController.create({
       message: 'Guardando'

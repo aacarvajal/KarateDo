@@ -66,7 +66,13 @@ export class Tab3Page {
         /* A desarrollar, se aconseja emplear un componente denominado toast */
       });
   }
-  /* Es un componente de la interfaz IONIC v4 */
+  
+  /**
+   * 
+   * @returns devuelve un modal
+   * Es un componente de la interfaz IONIC v4
+   * 
+   */
   async presentLoading() {
     this.myloading = await this.loadingController.create({
       message: 'Guardando'

@@ -13,6 +13,7 @@ export class ServiciosService {
   /**
    * 
    * @param fireStore 
+   * 
    */
   constructor(private fireStore: AngularFirestore) {
 
@@ -25,8 +26,8 @@ export class ServiciosService {
    * 
    * @param datos 
    * Recibe un objeto y lo guarda como un documento nuevo en la colección 'participante'
-   * @returns
-   * Devuelve un Promise
+   * @returns Devuelve un Promise
+   * 
    */
   agregaParticipante(datos) {
     return this.myCollection.add(datos);
@@ -34,8 +35,8 @@ export class ServiciosService {
 
  /**
   * Recupera participantes los documentos (participante) de la colección 'participante'
-  * @returns
-  * Devuelve un Observable
+  * @returns Devuelve un Observable
+  * 
   */
   leeParticipantes() {
     return this.myCollection.get();
@@ -46,8 +47,8 @@ export class ServiciosService {
    * @param id 
    * Recupera participantes los campos de un documento concreto 
    * identificado por la clave id de la colección 'participante'
-   * @returns
-   * Devuelve un Observable
+   * @returns Devuelve un Observable
+   * 
    */
   leeParticipante(id) {
     return this.myCollection.doc(id).get();
@@ -59,21 +60,17 @@ export class ServiciosService {
    * @param data 
    * Actualiza los campos (sobreescribe y añade) determinados por el 
    * objeto data en el documento identificado por id de la colección 'participante'
-   * @returns
-   * Devuelve un Promise
+   * @returns Devuelve un Promise
+   * 
    */
   actualizaParticipante(id, data) {
     return this.myCollection.doc(id).set(data);
   }
 
-  /**
-   * 
-   * @param id 
-   */
-  borraParticipante(id) {
+  /*borraParticipante(id) {
 
     return this.myCollection.doc(id).delete();
 
-  }
+  }*/
 
 }

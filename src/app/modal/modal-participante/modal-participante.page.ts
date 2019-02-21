@@ -52,6 +52,7 @@ export class ModalParticipantePage implements OnInit {
    * @param modalController 
    * @param loadingController 
    * @param navparams 
+   * 
    */
   constructor(public modalcontroller: ModalController,
     private formBuilder: FormBuilder,
@@ -122,7 +123,7 @@ export class ModalParticipantePage implements OnInit {
   }
 
   /**
-   * @returns
+   * @returns muestra un modal
    * ejercuta un cartel asincronico de guardando
    */
   async presentLoading() {
@@ -155,6 +156,7 @@ export class ModalParticipantePage implements OnInit {
   /**
    * 
    * @param msg muestra el loading al iniciar
+   * 
    */
   async show(msg) {
     this.myloading = await this.loadingController.create({
@@ -175,8 +177,13 @@ export class ModalParticipantePage implements OnInit {
     }
   }
 
-  //este metodo se encarga de recoger el valor tanto el nombre como el apellido del participante
-  //para despues mostrarlo en la siguiente ventana donde se añadiran puntos a ese participante.
+  /**
+   * 
+   * @returns devuelve un modal que pasaran el nombre y apellido de un participante
+   * 
+   * este metodo se encarga de recoger el valor tanto el nombre como el apellido del participante
+   * para despues mostrarlo en la siguiente ventana donde se añadiran puntos a ese participante.
+   */
   async anadirPuntos() {
     console.log(this.registro.value.nombre);
     const modal = await this.modalController.create({

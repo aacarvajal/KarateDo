@@ -18,7 +18,7 @@ export class ModalCategoriaPage implements OnInit {
   myloading: any;//muestra un cartel de cargando
 
   /**
-   * 
+   * se crea un objeto por cada clase necesaria
    * @param modalcontroller 
    * @param formBuilder 
    * @param servCat 
@@ -86,7 +86,7 @@ export class ModalCategoriaPage implements OnInit {
 
   //
   /**
-   * @returns
+   * @returns devuelve un modal
    * ejercuta un cartel asincrono de guardando
    */
   async presentLoading() {

@@ -39,6 +39,7 @@ export class Tab1Page {
    * @param loadingController 
    * @param toastController 
    * @param modalController 
+   * 
    */
   constructor(public serv: ServiciosService,
     public servCat: ServCategoriaService,
@@ -230,8 +231,9 @@ export class Tab1Page {
   /**
    * 
    * @param $event 
+   * este metodo se encarga del filtrado de participantes en el buscador
+   * @returns devuelve todas las palabras que se parezcan segun el caracter que se introduzca
    * 
-   * este metodo se encarga del filtrado de participantes en el buscador 
    */
   getFilteredParticipante($event) {
     // resetea todos los objetos y pone el array de nuevo con todos los elementos
@@ -252,8 +254,9 @@ export class Tab1Page {
   /**
    * 
    * @param $event 
+   * este metodo se encarga del filtrado de categoria en el buscador
+   * @returns devuelve todas las palabras que se parezcan segun el caracter que se introduzca
    * 
-   * este metodo se encarga del filtrado de participantes en el buscador
    */
   getFilteredCategoria($event) {
     // resetea todos los objetos y pone el array de nuevo con todos los elementos
@@ -271,13 +274,13 @@ export class Tab1Page {
     }
   }
 
+  //los tres metodos siguientes los uso solamente para el slide en el segment
   /**
    * 
    * @param cat 
-   * 
    * Actualiza la categoría que esté en ese momento activa
+   * 
    */
-  //los tres metodos siguientes los uso solamente para el slide en el segment
   updateCat(cat: Promise<any>) {
     cat.then(dat => {
       console.log(dat);

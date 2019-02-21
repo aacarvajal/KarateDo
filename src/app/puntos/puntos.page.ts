@@ -24,6 +24,7 @@ export class PuntosPage implements OnInit {
    * 
    * @param servPuntos 
    * @param loadingController 
+   * 
    */
   constructor(public servPuntos: ServPuntosService,
     public loadingController: LoadingController) { }
@@ -52,7 +53,7 @@ export class PuntosPage implements OnInit {
 
   /**
    * 
-   * @param refresher 
+   * @param refresher recarga los datos que se recogen la base de datos
    * Esta función es llamada por el componente Refresher de IONIC v4
    */
   doRefresh(refresher) {
@@ -76,7 +77,7 @@ export class PuntosPage implements OnInit {
 
   /**
    * 
-   * @param msg 
+   * @param msg muestra un modal
    * muestra el loading al iniciar
    */
   async show(msg) {

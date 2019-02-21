@@ -24,6 +24,7 @@ export class ThemeSwitcherService {
    * 
    * @param domCtrl 
    * @param document 
+   * 
    */
   constructor(private domCtrl: DomController, @Inject(DOCUMENT) private document) {
 
@@ -95,6 +96,7 @@ export class ThemeSwitcherService {
   /**
    * 
    * @param name 
+   * 
    */
   setTheme(name): void {
 

@@ -12,6 +12,7 @@ export class ServPuntosService {
   /**
    * 
    * @param fireStore 
+   * 
    */
   constructor(private fireStore: AngularFirestore) {
 
@@ -23,27 +24,33 @@ export class ServPuntosService {
   /**
    * 
    * @param datos 
+   * 
    */
   agregaPunto(datos) {
+
     return this.myCollection.add(datos);
+
   }
 
- /**
-  * @returns
-  * Recupera todos los documentos (puntos) de la colección 'puntos'
-  * Devuelve un Observable
-  */
+  /**
+   * 
+   * @returns Devuelve un Observable
+   * Recupera todos los documentos (puntos) de la colección 'puntos'
+   * 
+   */
   leePuntos() {
+
     return this.myCollection.get();
+
   }
 
   /**
    * 
    * @param id 
-   * @returns 
+   * @returns Devuelve un Observable
    * Recupera todos los campos de un documento concreto identificado por la clave id de la
-   * colección 'todo'
-   * Devuelve un Observable
+   * colección 'participantes'
+   * 
    */
   leePunto(id) {
     return this.myCollection.doc(id).get();
@@ -53,10 +60,10 @@ export class ServPuntosService {
    * 
    * @param id 
    * @param data
-   * @returns sobrescribe los datos de un doc de un id en concreto
+   * @returns Devuelve un Promise
+   * sobrescribe los datos de un doc de un id en concreto
    * Actualiza los campos (sobreescribe y añade) determinados por el objeto data en el
-   * documento identificado por id de la colección 'todo'
-   * Devuelve un Promise
+   * documento identificado por id de la colección 'participante'
    *  
    */
   actualizaPunto(id, data) {
@@ -65,14 +72,10 @@ export class ServPuntosService {
 
   }
 
-  /**
-   * 
-   * @param id 
-   * @returns devuelve el id del elemento de la coleccion que se ha borrado
-   */
-  borraPunto(id) {
+  //devuelve el id del elemento de la coleccion que se ha borrado
+  /*borraPunto(id) {
 
     return this.myCollection.doc(id).delete();
 
-  }
+  }*/
 }
