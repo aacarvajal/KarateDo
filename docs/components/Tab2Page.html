@@ -1,0 +1,1245 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>KarateDo documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">KarateDo documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>Tab2Page</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/tab2/tab2.page.ts</code>
+</p>
+
+
+
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-tab2</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>tab2.page.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>tab2.page.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#grado">grado</a>
+                            </li>
+                            <li>
+                                <a href="#listCateg">listCateg</a>
+                            </li>
+                            <li>
+                                <a href="#listPanelCat">listPanelCat</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#loadingController">loadingController</a>
+                            </li>
+                            <li>
+                                <a href="#myloading">myloading</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#reg">reg</a>
+                            </li>
+                            <li>
+                                <a href="#timeout">timeout</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#doRefresh">doRefresh</a>
+                            </li>
+                            <li>
+                                <a href="#hide">hide</a>
+                            </li>
+                            <li>
+                                <a href="#ionViewDidEnter">ionViewDidEnter</a>
+                            </li>
+                            <li>
+                                <a href="#logForm">logForm</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#presentLoading">presentLoading</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#presentToast">presentToast</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#show">show</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(formBuilder: <a href="https://angular.io/api/forms/FormBuilder" target="_blank">FormBuilder</a>, serv: <a href="../injectables/ServiciosService.html">ServiciosService</a>, servCat: <a href="../injectables/ServCategoriaService.html">ServCategoriaService</a>, toastController: ToastController, loadingController: LoadingController)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/tab2/tab2.page.ts:40</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>formBuilder</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/forms/FormBuilder" target="_blank" >FormBuilder</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>serv</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ServiciosService.html" target="_self" >ServiciosService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>servCat</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ServCategoriaService.html" target="_self" >ServCategoriaService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>toastController</td>
+                                                  
+                                                        <td>
+                                                                    <code>ToastController</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>loadingController</td>
+                                                  
+                                                        <td>
+                                                                    <code>LoadingController</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="doRefresh"></a>
+                    <span class="name">
+                        <b>
+                            doRefresh
+                        </b>
+                        <a href="#doRefresh"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>doRefresh(refresher)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="156"
+                            class="link-to-prism">src/app/tab2/tab2.page.ts:156</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>refresher</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Esta función es llamada por el componente Refresher de IONIC v4</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="hide"></a>
+                    <span class="name">
+                        <b>
+                            hide
+                        </b>
+                        <a href="#hide"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>hide()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="194"
+                            class="link-to-prism">src/app/tab2/tab2.page.ts:194</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ionViewDidEnter"></a>
+                    <span class="name">
+                        <b>
+                            ionViewDidEnter
+                        </b>
+                        <a href="#ionViewDidEnter"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ionViewDidEnter()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="130"
+                            class="link-to-prism">src/app/tab2/tab2.page.ts:130</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="logForm"></a>
+                    <span class="name">
+                        <b>
+                            logForm
+                        </b>
+                        <a href="#logForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>logForm()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="71"
+                            class="link-to-prism">src/app/tab2/tab2.page.ts:71</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="presentLoading"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Async</span>
+                            presentLoading
+                        </b>
+                        <a href="#presentLoading"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>presentLoading()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="113"
+                            class="link-to-prism">src/app/tab2/tab2.page.ts:113</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>{}</code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>devuelve un modal
+Es un componente de la interfaz IONIC v4</p>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="presentToast"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Async</span>
+                            presentToast
+                        </b>
+                        <a href="#presentToast"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>presentToast()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="121"
+                            class="link-to-prism">src/app/tab2/tab2.page.ts:121</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="show"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Async</span>
+                            show
+                        </b>
+                        <a href="#show"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>show(msg)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="181"
+                            class="link-to-prism">src/app/tab2/tab2.page.ts:181</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>msg</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>muestra el loading al iniciar</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="grado"></a>
+                        <span class="name">
+                            <b>
+                            grado</b>
+                            <a href="#grado"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../classes/NivelGrado.html" target="_self" >NivelGrado[]</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[
+
+    { id: 1, grado: &quot;Blanco&quot; },
+    { id: 2, grado: &quot;Blanco-Amarillo&quot; },
+    { id: 3, grado: &quot;Amarillo&quot; },
+    { id: 4, grado: &quot;Amarillo-Naranja&quot; },
+    { id: 5, grado: &quot;Naranja&quot; },
+    { id: 6, grado: &quot;Naranja-Verde&quot; },
+    { id: 7, grado: &quot;Verde&quot; },
+    { id: 8, grado: &quot;Verde-Azul&quot; },
+    { id: 9, grado: &quot;Azul&quot; },
+    { id: 10, grado: &quot;Azul-Marron&quot; },
+    { id: 11, grado: &quot;Marron&quot; },
+    { id: 12, grado: &quot;Negro&quot; }
+
+  ]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/tab2/tab2.page.ts:19</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="listCateg"></a>
+                        <span class="name">
+                            <b>
+                            listCateg</b>
+                            <a href="#listCateg"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/tab2/tab2.page.ts:36</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="listPanelCat"></a>
+                        <span class="name">
+                            <b>
+                            listPanelCat</b>
+                            <a href="#listPanelCat"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/tab2/tab2.page.ts:37</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="loadingController"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            loadingController</b>
+                            <a href="#loadingController"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>LoadingController</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">src/app/tab2/tab2.page.ts:56</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="myloading"></a>
+                        <span class="name">
+                            <b>
+                            myloading</b>
+                            <a href="#myloading"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/tab2/tab2.page.ts:40</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="reg"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            reg</b>
+                            <a href="#reg"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://angular.io/api/forms/FormGroup" target="_blank" >FormGroup</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/tab2/tab2.page.ts:39</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="timeout"></a>
+                        <span class="name">
+                            <b>
+                            timeout</b>
+                            <a href="#timeout"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/tab2/tab2.page.ts:38</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
+import { Validators, FormGroup, FormBuilder } from &#x27;@angular/forms&#x27;;
+import { LoadingController, ToastController } from &#x27;@ionic/angular&#x27;;
+import { Router } from &#x27;@angular/router&#x27;;
+import { ServiciosService } from &#x27;../servicios/servicios.service&#x27;;
+import { ServCategoriaService } from &#x27;../servicios/serv-categoria.service&#x27;;
+import { environment } from &#x27;src/environments/environment&#x27;;
+import { NivelGrado } from &#x27;../model/nivelGrado&#x27;;
+
+@Component({
+  selector: &#x27;app-tab2&#x27;,
+  templateUrl: &#x27;tab2.page.html&#x27;,
+  styleUrls: [&#x27;tab2.page.scss&#x27;]
+})
+export class Tab2Page {
+
+  //se crea un array que contendra todas las opciones
+  //de una lista desplegable del modelo NivelGrado
+  grado: NivelGrado[] &#x3D; [
+
+    { id: 1, grado: &quot;Blanco&quot; },
+    { id: 2, grado: &quot;Blanco-Amarillo&quot; },
+    { id: 3, grado: &quot;Amarillo&quot; },
+    { id: 4, grado: &quot;Amarillo-Naranja&quot; },
+    { id: 5, grado: &quot;Naranja&quot; },
+    { id: 6, grado: &quot;Naranja-Verde&quot; },
+    { id: 7, grado: &quot;Verde&quot; },
+    { id: 8, grado: &quot;Verde-Azul&quot; },
+    { id: 9, grado: &quot;Azul&quot; },
+    { id: 10, grado: &quot;Azul-Marron&quot; },
+    { id: 11, grado: &quot;Marron&quot; },
+    { id: 12, grado: &quot;Negro&quot; }
+
+  ];
+
+  listCateg &#x3D; [];
+  listPanelCat &#x3D; [];
+  timeout;
+  private reg: FormGroup; //Instancia del FormGroup de nueva.page.html
+  myloading: any; //mejorable con un servicio destinado a estos menesteres...
+  //Lo usamos para mostrar un cargando mientras se realiza la operación.
+
+  /**
+   * 
+   * @param formBuilder 
+   * @param serv 
+   * @param servCat 
+   * @param toastController 
+   * @param loadingController 
+   * 
+   */
+  constructor(private formBuilder: FormBuilder,//sin el formbuilder no se pueden crear los campos dentro del formulario
+    private serv: ServiciosService,
+    private servCat: ServCategoriaService,
+    private toastController: ToastController,
+    public loadingController: LoadingController) {
+    /* Creamos la relación entre el formulario de tab2.page.html y reg; además
+   asociamos los validares y valores iniciales */
+    this.reg &#x3D; this.formBuilder.group({
+      nombre: [&#x27;&#x27;, Validators.required],
+      apellido: [&#x27;&#x27;, Validators.required],
+      edad: [&#x27;&#x27;, Validators.required],
+      grado: [&#x27;&#x27;, Validators.required],
+      categoria: [&#x27;&#x27;, Validators.required]
+    });
+  }
+
+  /* Se ejecuta al submit el formulario. Crea un objeto proveniente del formulario (sería
+ igual que this.reg.value) y llama a la función agregaNota del servicio. Gestiona la
+ Promise para sincronizar la interfaz. */
+  logForm() {
+    let data &#x3D; {
+      nombre: this.reg.get(&quot;nombre&quot;).value,
+      apellido: this.reg.get(&quot;apellido&quot;).value,
+      edad: this.reg.get(&quot;edad&quot;).value,
+      grado: this.reg.get(&quot;grado&quot;).value,
+      categoria: this.reg.get(&quot;categoria&quot;).value
+    };
+    /* Mostramos el cargando... */
+    this.myloading &#x3D; this.presentLoading();
+    this.presentToast();
+    this.serv.agregaParticipante(data)//envia la funcion
+      .then((docRef) &#x3D;&gt; {
+        //console.log(&quot;ID insertado&quot;, docRef.id);//ultimo id
+        /* Ponemos en blanco los campos del formulario*/
+        this.reg.setValue({
+          nombre: &#x27;&#x27;,
+          apellido: &#x27;&#x27;,
+          edad: &#x27;&#x27;,
+          grado: &#x27;&#x27;,
+          categoria: &#x27;&#x27;
+        });
+        /* Cerramos el cargando...*/
+        this.loadingController.dismiss();//cierra el loading
+        /*Podríamos ir a la página de listado*/
+        //this.router.navigateByUrl(&#x27;/tabs/(tab1:tab1)&#x27;);
+      })
+      .catch((error) &#x3D;&gt; {
+        console.error(&quot;Error insertando documento: &quot;, error);
+        /* Cerramos el cargando...*/
+        this.loadingController.dismiss();
+        /* Mostramos un mensaje de error */
+        /* A desarrollar, se aconseja emplear un componente denominado toast */
+      });
+  }
+
+  /**
+   * 
+   * @returns devuelve un modal
+   * Es un componente de la interfaz IONIC v4
+   * 
+   */
+  async presentLoading() {
+    this.myloading &#x3D; await this.loadingController.create({
+      message: &#x27;Guardando&#x27;
+    });
+    return await this.myloading.present();
+  }
+
+  /*muestra un mensaje para confirmar que se ha añadido un nuevo participante*/
+  async presentToast() {
+    const toast &#x3D; await this.toastController.create({
+      message: &#x27;Participante añadido&#x27;,
+      duration: 2000
+    });
+    toast.present();
+  }
+
+  //se encarga de leer las categorias para despues mostrarlas en una lista desplegable.
+  ionViewDidEnter() {//es igual que el ngInit
+    this.show(&quot;Cargando&quot;);//texto de el loading
+    //categoria
+    this.servCat.leeCategorias()
+      .subscribe((querySnapshot) &#x3D;&gt; {
+        this.listCateg &#x3D; [];
+        //this.delete();
+        querySnapshot.forEach((doc) &#x3D;&gt; {
+          // doc.data() is never undefined for query doc snapshots
+          //console.log(doc.id, &quot; &#x3D;&gt; &quot;, doc.data());
+          this.listCateg.push({ id: doc.id, ...doc.data() });
+        });
+        //console.log(this.listPartic);
+        this.listPanelCat &#x3D; this.listCateg;
+        //no loading
+        this.myloading.dismiss();
+      });
+
+  }
+
+  /**
+   * 
+   * @param refresher 
+   * 
+   * Esta función es llamada por el componente Refresher de IONIC v4
+   */
+  doRefresh(refresher) {
+    //categoria
+    this.servCat.leeCategorias()
+      .subscribe(querySnapshot &#x3D;&gt; {
+        this.listCateg &#x3D; [];
+        //this.delete(); //Es un hack para solucionar un bug con el refresher y las listas
+        // dinámicas (ngFor) 
+        querySnapshot.forEach((doc) &#x3D;&gt; {
+          //console.log(doc.data());//.data devuelve un objeto
+          //paydata devuelve un objeto de un array
+          this.listCateg.push({ id: doc.id, ...doc.data() });//push&#x3D;añadir elementos a un array
+          //los 3 puntos en typescript convierte un objeto a json
+        });
+        this.listPanelCat &#x3D; this.listCateg;
+        refresher.target.complete();//para que se cierre el refresh
+      });
+
+  }
+
+  /**
+   * 
+   * @param msg 
+   * 
+   * muestra el loading al iniciar
+   */
+  async show(msg) {
+    this.myloading &#x3D; await this.loadingController.create({
+      message: msg,
+      spinner: &quot;bubbles&quot;,
+      //animated: true,
+      leaveAnimation: null
+    });
+    this.timeout &#x3D; setTimeout(() &#x3D;&gt; {
+      this.myloading.dismiss();
+      //this.toast.show(this.translate.instant(&quot;errorloading&quot;));
+    }, environment.tiempoMaxCarga);
+    await this.myloading.present();
+  }
+  hide() {
+    if (this.myloading) {
+      clearTimeout(this.timeout);
+      this.myloading.dismiss();
+    }
+  }
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;ion-header&gt;
+  &lt;ion-toolbar color&#x3D;&quot;primary&quot;&gt;
+    &lt;ion-buttons slot&#x3D;&quot;start&quot;&gt;
+      &lt;ion-menu-button&gt;&lt;/ion-menu-button&gt;
+    &lt;/ion-buttons&gt;
+    &lt;ion-title&gt;
+      {{&quot;competitors&quot; | translate}}
+    &lt;/ion-title&gt;
+  &lt;/ion-toolbar&gt;
+&lt;/ion-header&gt;
+
+&lt;ion-content&gt;
+  &lt;form [formGroup]&#x3D;&quot;reg&quot; (ngSubmit)&#x3D;&quot;logForm()&quot;&gt;
+    &lt;!--formgroup es un binding (recoge todos los valores) se pondra el mismo nombre en el controlador--&gt;
+
+    &lt;ion-item&gt;
+      &lt;ion-label&gt;{{&quot;name&quot; | translate}} &lt;/ion-label&gt;
+      &lt;ion-input type&#x3D;&quot;text&quot; formControlName&#x3D;&quot;nombre&quot;&gt;&lt;/ion-input&gt;
+      &lt;!--por cada item habra un formControlName--&gt;
+    &lt;/ion-item&gt;
+
+    &lt;ion-item&gt;
+      &lt;ion-label&gt;{{&quot;surname&quot; | translate}} &lt;/ion-label&gt;
+      &lt;ion-input type&#x3D;&quot;text&quot; formControlName&#x3D;&quot;apellido&quot;&gt;&lt;/ion-input&gt;
+    &lt;/ion-item&gt;
+
+    &lt;ion-item&gt;
+      &lt;ion-label&gt;{{&quot;age&quot; | translate}} &lt;/ion-label&gt;
+      &lt;ion-input type&#x3D;&quot;number&quot; formControlName&#x3D;&quot;edad&quot;&gt;&lt;/ion-input&gt;
+    &lt;/ion-item&gt;
+
+    &lt;!-- &lt;ion-item&gt;
+      &lt;ion-label&gt;{{&quot;rank&quot; | translate}} &lt;/ion-label&gt;
+      &lt;ion-input type&#x3D;&quot;text&quot; formControlName&#x3D;&quot;grado&quot;&gt;&lt;/ion-input&gt;
+    &lt;/ion-item&gt; --&gt;
+
+    &lt;ion-list&gt;
+
+      &lt;ion-item&gt;
+        &lt;ion-label&gt;{{&quot;rank&quot; | translate}}&lt;/ion-label&gt;
+        &lt;ion-select placeholder&#x3D;&quot;Elige una opcion&quot; formControlName&#x3D;&quot;grado&quot;&gt;
+          &lt;ion-select-option *ngFor&#x3D;&quot;let item of grado;let i &#x3D; index&quot; value&#x3D;&quot;{{item.grado}}&quot;&gt;{{item.grado}}&lt;/ion-select-option&gt;
+        &lt;/ion-select&gt;
+      &lt;/ion-item&gt;
+
+      &lt;ion-item&gt;
+        &lt;ion-label&gt;{{&quot;categories&quot; | translate}}&lt;/ion-label&gt;
+        &lt;ion-select placeholder&#x3D;&quot;Elige una opcion&quot; formControlName&#x3D;&quot;categoria&quot;&gt;
+          &lt;ion-select-option *ngFor&#x3D;&quot;let item of listPanelCat;let i &#x3D; index&quot; value&#x3D;&quot;{{item.descripcion}}&quot;&gt;{{item.descripcion}}&lt;/ion-select-option&gt;
+        &lt;/ion-select&gt;
+      &lt;/ion-item&gt;
+
+    &lt;/ion-list&gt;
+
+    &lt;ion-button type&#x3D;&quot;submit&quot; [disabled]&#x3D;&quot;!reg.valid&quot;&gt;{{&quot;safe&quot; | translate}} &lt;/ion-button&gt;
+  &lt;/form&gt;
+&lt;/ion-content&gt;</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>tab2.page.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><ion-header>  <ion-toolbar color="primary">    <ion-buttons slot="start">      <ion-menu-button></ion-menu-button>    </ion-buttons>    <ion-title>      {{"competitors" | translate}}    </ion-title>  </ion-toolbar></ion-header><ion-content>  <form [formGroup]="reg" (ngSubmit)="logForm()">    <!--formgroup es un binding (recoge todos los valores) se pondra el mismo nombre en el controlador-->    <ion-item>      <ion-label>{{"name" | translate}} </ion-label>      <ion-input type="text" formControlName="nombre"></ion-input>      <!--por cada item habra un formControlName-->    </ion-item>    <ion-item>      <ion-label>{{"surname" | translate}} </ion-label>      <ion-input type="text" formControlName="apellido"></ion-input>    </ion-item>    <ion-item>      <ion-label>{{"age" | translate}} </ion-label>      <ion-input type="number" formControlName="edad"></ion-input>    </ion-item>    <!-- <ion-item>      <ion-label>{{"rank" | translate}} </ion-label>      <ion-input type="text" formControlName="grado"></ion-input>    </ion-item> -->    <ion-list>      <ion-item>        <ion-label>{{"rank" | translate}}</ion-label>        <ion-select placeholder="Elige una opcion" formControlName="grado">          <ion-select-option *ngFor="let item of grado;let i = index" value="{{item.grado}}">{{item.grado}}</ion-select-option>        </ion-select>      </ion-item>      <ion-item>        <ion-label>{{"categories" | translate}}</ion-label>        <ion-select placeholder="Elige una opcion" formControlName="categoria">          <ion-select-option *ngFor="let item of listPanelCat;let i = index" value="{{item.descripcion}}">{{item.descripcion}}</ion-select-option>        </ion-select>      </ion-item>    </ion-list>    <ion-button type="submit" [disabled]="!reg.valid">{{"safe" | translate}} </ion-button>  </form></ion-content></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ModalCategoriaPage', 'selector': 'app-modal-categoria'},{'name': 'ModalParticipantePage', 'selector': 'app-modal-participante'},{'name': 'PuntosPage', 'selector': 'app-puntos'},{'name': 'PuntosParticipantePage', 'selector': 'app-puntos-participante'},{'name': 'Tab1Page', 'selector': 'app-tab1'},{'name': 'Tab2Page', 'selector': 'app-tab2'},{'name': 'Tab3Page', 'selector': 'app-tab3'},{'name': 'TabsPage', 'selector': 'app-tabs'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'Tab2Page'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'Tab2Page.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

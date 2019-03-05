@@ -9,7 +9,8 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "compodoc": "./node_modules/.bin/compodoc -d ./docs/ -p ./tsconfig.json"
   },
   "private": true,
   "dependencies": {
@@ -20,6 +21,7 @@
     "@angular/platform-browser": "~7.1.4",
     "@angular/platform-browser-dynamic": "~7.1.4",
     "@angular/router": "~7.1.4",
+    "@compodoc/compodoc": "^1.1.9",
     "@ionic-native/core": "5.0.0-beta.21",
     "@ionic-native/firebase": "^4.19.0",
     "@ionic-native/flashlight": "^5.0.0",
