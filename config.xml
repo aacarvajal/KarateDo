@@ -88,4 +88,5 @@
     <plugin name="cordova-plugin-flashlight" spec="3.2.0" />
     <plugin name="cordova-plugin-sensors" spec="https://github.com/fabiorogeriosj/cordova-plugin-sensors.git" />
     <engine name="android" spec="7.1.4" />
+    <engine name="browser" spec="5.0.4" />
 </widget>

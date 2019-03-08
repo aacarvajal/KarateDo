@@ -20,7 +20,9 @@
     "@angular/http": "~7.1.4",
     "@angular/platform-browser": "~7.1.4",
     "@angular/platform-browser-dynamic": "~7.1.4",
+    "@angular/pwa": "^0.13.4",
     "@angular/router": "~7.1.4",
+    "@angular/service-worker": "~7.1.4",
     "@compodoc/compodoc": "^1.1.9",
     "@ionic-native/core": "5.0.0-beta.21",
     "@ionic-native/firebase": "^4.19.0",
@@ -36,6 +38,7 @@
     "@ngx-translate/http-loader": "^4.0.0",
     "angularfire2": "^5.1.1",
     "cordova-android": "7.1.4",
+    "cordova-browser": "5.0.4",
     "cordova-plugin-compat": "1.2.0",
     "cordova-plugin-device": "^2.0.2",
     "cordova-plugin-flashlight": "3.2.0",
@@ -96,7 +99,8 @@
       "cordova-plugin-sensors": {}
     },
     "platforms": [
-      "android"
+      "android",
+      "browser"
     ]
   }
 }

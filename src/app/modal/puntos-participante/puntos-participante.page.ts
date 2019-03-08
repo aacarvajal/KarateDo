@@ -12,7 +12,7 @@ import { ServiciosService } from 'src/app/servicios/servicios.service';
 export class PuntosParticipantePage implements OnInit {
   ngOnInit(): void { }
 
-  private puntos: FormGroup;
+  public puntos: FormGroup;
   myloading: any;
   listPuntos = [];
   listPanelPuntos = [];

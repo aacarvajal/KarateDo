@@ -7,11 +7,11 @@
   <form [formGroup]="Categoria" (ngSubmit)="actualizarFormulario()">
     <ion-item>
       <ion-label>{{"description" | translate}} </ion-label>
-      <ion-input type="text" formControlName="descripcion"></ion-input>
+      <ion-input formControlName="descripcion"></ion-input><!-- type="text"-->
     </ion-item>
     <ion-item>
       <ion-label>{{"system" | translate}} </ion-label>
-      <ion-input type="text" formControlName="sistema"></ion-input>
+      <ion-input formControlName="sistema"></ion-input><!--type="text" -->
     </ion-item>
     <ion-button type="submit" [disabled]="!Categoria.valid">{{"safe" | translate}} </ion-button>
     <!-- <ion-button (click)="dismiss()">Cancelar</ion-button> -->

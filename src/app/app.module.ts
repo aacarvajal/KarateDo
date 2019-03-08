@@ -10,7 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
-import { environment } from 'src/environments/environment';
+//import { environment } from 'src/environments/environment';
 import { FormsModule, ReactiveFormsModule, FormGroup } from '@angular/forms';
 import { IonicStorageModule } from '@ionic/storage';
 import { TranslateModule, TranslateLoader,TranslatePipe } from '@ngx-translate/core';
@@ -18,6 +18,8 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { Vibration } from '@ionic-native/vibration/ngx';
 import { Flashlight } from '@ionic-native/flashlight/ngx';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 export function setTranslateLoader(http: any) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
@@ -43,7 +45,7 @@ export function setTranslateLoader(http: any) {
         useFactory: (setTranslateLoader), 
         deps: [HttpClient]
       }
-    })
+    }), ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
     StatusBar,

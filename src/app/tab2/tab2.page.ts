@@ -36,7 +36,7 @@ export class Tab2Page {
   listCateg = [];
   listPanelCat = [];
   timeout;
-  private reg: FormGroup; //Instancia del FormGroup de nueva.page.html
+  public reg: FormGroup; //Instancia del FormGroup de nueva.page.html
   myloading: any; //mejorable con un servicio destinado a estos menesteres...
   //Lo usamos para mostrar un cargando mientras se realiza la operación.
 

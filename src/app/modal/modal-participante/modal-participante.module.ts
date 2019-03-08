@@ -6,7 +6,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { ModalParticipantePage } from './modal-participante.page';
-import { PuntosParticipantePage } from '../puntos-participante/puntos-participante.page';
+import { TranslateModule } from '@ngx-translate/core';
+//import { PuntosParticipantePage } from '../puntos-participante/puntos-participante.page';
 
 const routes: Routes = [
   {
@@ -19,10 +20,12 @@ const routes: Routes = [
   imports: [
     CommonModule,
     FormsModule, 
+    ReactiveFormsModule,
+    TranslateModule,
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [ModalParticipantePage, PuntosParticipantePage],
-  entryComponents: [PuntosParticipantePage],
+  declarations: [/*ModalParticipantePage, PuntosParticipantePage*/],
+  entryComponents: [/*PuntosParticipantePage*/],
 })
 export class ModalParticipantePageModule { }

@@ -11,12 +11,14 @@ import { TabsPage } from './tabs.page';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { setTranslateLoader } from 'src/app/app.module';
 import { HttpClient } from '@angular/common/http';
+import { ModalParticipantePage } from '../modal/modal-participante/modal-participante.page';
 
 @NgModule({
   imports: [
     IonicModule,
     CommonModule,
     FormsModule,
+    //ModalParticipantePage,
     ReactiveFormsModule,
     TabsPageRoutingModule,
     TranslateModule.forChild({

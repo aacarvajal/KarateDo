@@ -28,7 +28,7 @@ import { HttpClient } from '@angular/common/http';
     })
 
   ],
-declarations: [Tab1Page, ModalParticipantePage, ModalCategoriaPage,PuntosParticipantePage ],
+declarations: [Tab1Page, ModalParticipantePage, ModalCategoriaPage, PuntosParticipantePage ],
   entryComponents: [ModalParticipantePage, ModalCategoriaPage, PuntosParticipantePage ]
 })
 export class Tab1PageModule { }

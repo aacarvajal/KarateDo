@@ -7,6 +7,7 @@ import { Tab2Page } from './tab2.page';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { setTranslateLoader } from 'src/app/app.module';
 import { HttpClient } from '@angular/common/http';
+import { PuntosParticipantePage } from '../modal/puntos-participante/puntos-participante.page';
 
 @NgModule({
   imports: [
@@ -24,6 +25,7 @@ import { HttpClient } from '@angular/common/http';
 
 
   ],
-  declarations: [Tab2Page]
+declarations: [Tab2Page/*, PuntosParticipantePage*/],
+entryComponents: [/*PuntosParticipantePage*/],
 })
 export class Tab2PageModule {}

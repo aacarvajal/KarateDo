@@ -12,7 +12,7 @@ import { ServCategoriaService } from '../servicios/serv-categoria.service';
 })
 export class Tab3Page {
 
-  private cat: FormGroup; //Instancia del FormGroup de nueva.page.html
+  public cat: FormGroup; //Instancia del FormGroup de nueva.page.html
   myloading: any; //mejorable con un servicio destinado a estos menesteres...
   //Lo usamos para mostrar un cargando mientras se realiza la operación.
 

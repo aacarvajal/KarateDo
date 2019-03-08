@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
 import { ModalCategoriaPage } from './modal-categoria.page';
+import { TranslateModule } from '@ngx-translate/core';
 
 const routes: Routes = [
   {
@@ -18,9 +19,11 @@ const routes: Routes = [
   imports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
+    TranslateModule,
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [ModalCategoriaPage]
+  declarations: [/*ModalCategoriaPage*/]
 })
 export class ModalCategoriaPageModule {}

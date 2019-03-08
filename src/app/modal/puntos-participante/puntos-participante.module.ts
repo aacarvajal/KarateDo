@@ -6,6 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { PuntosParticipantePage } from './puntos-participante.page';
+import { TranslateModule } from '@ngx-translate/core';
 
 const routes: Routes = [
   {
@@ -18,9 +19,11 @@ const routes: Routes = [
   imports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
+    TranslateModule,
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [PuntosParticipantePage]
+  declarations: [/*PuntosParticipantePage*/]
 })
 export class PuntosParticipantePageModule {}
